@@ -1,0 +1,6 @@
+default:
+  youtube:
+    - https://www.youtube.com/feeds/videos.xml?channel_id=UC8dwPSQ5DOJGtwhmcNhNjSw # ヤンマガch 講談社
+    - https://www.youtube.com/feeds/videos.xml?channel_id=UCrJ0g7xuENFH5h4XyuDGltw # 18man
+    - https://www.youtube.com/feeds/videos.xml?channel_id=UCyh0e1_dwRavk1NTLaAPklA # SUKIYA TV
+    - https://www.youtube.com/feeds/videos.xml?channel_id=UC0wPMrt3i6yGYafBsZGt9Dg # ビンビン美女ちゃんねる
