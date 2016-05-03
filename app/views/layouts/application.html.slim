@@ -9,8 +9,12 @@ html
     = csrf_meta_tags
   body
     #container
+      nav
+        .nav-wrapper
+          = link_to "#" do
+            = image_tag "logo.png", id: "logo"
       .row
-        .col.s12.m12.l9
+        .col.s12.m12.l8
           = yield
-        #sidebar.col.l3
+        #sidebar.col.l4
           = render partial: 'shared/sidebar'

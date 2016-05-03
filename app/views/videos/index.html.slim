@@ -1,11 +1,12 @@
+h2.h3
+  | Gravure Tube 新着一覧
 - @videos.each do |video|
   .col.s12.m6.l3
-    .card.medium
+    .card.small
       .card-image.waves-effect.waves-block.waves-light
-        = image_tag("#{video.thumbnail}", alt: video.title, class: 'activator')
+        = link_to video do
+          = image_tag("#{video.thumbnail}", alt: video.title, class: 'activator')
       .card-content
-        = video.title
-        p
-          = video.description
+        = truncate(video.title, long: 50)
       .card-action
         = link_to '動画を見る', video

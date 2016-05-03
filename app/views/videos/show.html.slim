@@ -1,2 +1,6 @@
-.col.s12.m12.l6
+h2.h3
+  | @video.title
+.video-detail
   iframe width="560" height="315" src="https://www.youtube.com/embed/#{@video.embed_code}" frameborder="0" allowfullscreen
+  p
+    = @video.description.html_safe
