@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160503044733) do
+ActiveRecord::Schema.define(version: 20160503080322) do
 
   create_table "videos", force: :cascade do |t|
     t.string   "title",         limit: 255
@@ -19,10 +19,11 @@ ActiveRecord::Schema.define(version: 20160503044733) do
     t.string   "original_site", limit: 255
     t.string   "embed_code",    limit: 255
     t.datetime "published_at"
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.string   "channel",       limit: 255
     t.string   "url",           limit: 255
+    t.text     "description",   limit: 65535
   end
 
 end

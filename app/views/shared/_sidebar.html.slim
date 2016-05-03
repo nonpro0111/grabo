@@ -1,0 +1,7 @@
+.col.l10
+  - @recommend_videos.each do |video|
+    .card.xx-small
+      .card-image.waves-effect.waves-block.waves-light
+        = image_tag("#{video.thumbnail}", alt: video.title, class: 'activator')
+      .card-content.small-content
+        = link_to video.title, video

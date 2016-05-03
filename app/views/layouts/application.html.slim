@@ -3,8 +3,14 @@ html
   head
     title
       | GravureTube
+    = stylesheet_link_tag 'https://fonts.googleapis.com/icon?family=Material+Icons'
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   body
-    = yield
+    #container
+      .row
+        .col.s12.m12.l9
+          = yield
+        #sidebar.col.l3
+          = render partial: 'shared/sidebar'

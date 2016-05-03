@@ -13,3 +13,15 @@
  *= require_tree .
  *= require_self
  */
+@import "materialize/components/color";
+@import "materialize";
+@import "materialize/extras/nouislider";
+
+.card.xx-small {
+  height: 220px;
+}
+
+.card-content.small-content {
+  padding: 10px;
+  font-size: 0.7em;
+}
