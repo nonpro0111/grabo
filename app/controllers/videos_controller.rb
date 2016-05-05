@@ -2,7 +2,7 @@ class VideosController < ApplicationController
   before_action :recommend_videos
 
   def index
-    @videos = Video.all
+    @videos = Video.order(published_at: :desc).page(params[:page])
   end
 
   def show
