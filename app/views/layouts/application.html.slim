@@ -11,8 +11,9 @@ html
     #container
       nav.header
         .nav-wrapper
-          = link_to "#" do
-            = image_tag "logo.png", id: "logo"
+          h1
+            = link_to root_path do
+              = image_tag "logo.png", id: "logo", alt: "Gravure Tube | グラビア動画まとめ"
       .row
         #main.col.s12.m12.l8
           = yield
