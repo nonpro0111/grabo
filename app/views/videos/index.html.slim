@@ -1,4 +1,4 @@
-.col.s12.m12.l12
+.col.s12.m12.l11.offset-l1
   h2.h3
     | Gravure Tube 新着一覧
   - @videos.each do |video|
@@ -12,4 +12,4 @@
         .card-action
           = link_to '動画を見る', video
 
-= paginate @videos
+  = paginate @videos

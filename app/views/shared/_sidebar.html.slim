@@ -1,8 +1,9 @@
-.center
-  h5 おすすめ動画
-  - @recommend_videos.each do |video|
-    .card.xx-small
-      .card-image.waves-effect.waves-block.waves-light
-        = image_tag("#{video.thumbnail}", alt: video.title, class: 'activator')
-      .card-content.small-content
-        = link_to video.title, video
+.col.s12.m12.l10
+  .recommend-list
+    h5 おすすめ動画
+    - @recommend_videos.each do |video|
+      .card.xx-small
+        .card-image.waves-effect.waves-block.waves-light
+          = image_tag("#{video.thumbnail}", alt: video.title, class: 'activator')
+        .card-content.small-content
+          = link_to video.title, video

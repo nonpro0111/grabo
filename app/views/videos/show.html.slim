@@ -1,6 +1,19 @@
-h2.h3
-  | @video.title
-.video-detail
-  iframe width="560" height="315" src="https://www.youtube.com/embed/#{@video.embed_code}" frameborder="0" allowfullscreen
-  p
+#video-detail.col.s12.m12.l12
+  .card-panel.embedded-video
+    h2.h4
+      = @video.title
+    .video-container
+      iframe width="700" height="393" src="https://www.youtube.com/embed/#{@video.embed_code}" frameborder="0" allowfullscreen
+    br
     = @video.description.html_safe
+  .relation-list
+    h3.h4
+      | 関連動画
+    - @relation_videos.each do |video|
+      .col.s12.m6.l3
+        .card.xx-small
+          .card-image.waves-effect.waves-block.waves-light
+            = link_to video do
+              = image_tag("#{video.thumbnail}", alt: video.title, class: 'activator')
+          .card-content
+            = link_to(truncate(video.title, long: 50), video)

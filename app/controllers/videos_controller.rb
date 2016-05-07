@@ -7,5 +7,6 @@ class VideosController < ApplicationController
 
   def show
     @video = Video.find(params[:id])
+    @relation_videos = Video.order("RAND()").limit(8)
   end
 end
