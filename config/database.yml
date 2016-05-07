@@ -1,0 +1,16 @@
+development:
+  database: gravure-tube_development
+  adapter: mysql2
+  encoding: utf8
+  pool: 5
+  username: root
+  password: ENV['MYSQL_ROOT_PW']
+  host: localhost
+
+production:
+  adapter: mysql2
+  encoding: utf8
+  username: sqale_7c7e56b1e2
+  password: fe11a744d39334daa3eeb4f54d6dc8fd314c821a53f548e5
+  database: sqale_7c7e56b1e2
+  host: mysql001.sqale.jp
