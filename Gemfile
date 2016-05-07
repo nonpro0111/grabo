@@ -22,6 +22,9 @@ gem 'activerecord-import'
 gem 'kaminari'
 gem 'whenever', require: false
 
+gem 'meta-tags', :require => 'meta_tags'
+gem 'sitemap_generator'
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
