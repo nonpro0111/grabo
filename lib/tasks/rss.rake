@@ -10,16 +10,20 @@ namespace :rss do
       last_entry = Video.where(channel: feed.title).order(:published_at).last
       feed.entries.each do |entry|
         next if last_entry && last_entry.published_at >= entry.published.localtime
-        videos << Video.new(
-                    title: entry.title,
-                    thumbnail: entry.media_thumbnail_url.first,
-                    original_site: 'youtube',
-                    embed_code: entry.links.first.match(/watch\?v=(\w+)/)[1],
-                    published_at: entry.published,
-                    channel: feed.title,
-                    url: entry.links.first,
-                    description: entry.media_description.first
-                  )
+        begin
+          videos << Video.new(
+                      title: entry.title,
+                      thumbnail: entry.media_thumbnail_url.first,
+                      original_site: 'youtube',
+                      embed_code: entry.links.first.match(/watch\?v=(\w+)/)[1],
+                      published_at: entry.published,
+                      channel: feed.title,
+                      url: entry.links.first,
+                      description: entry.media_description.first
+                    )
+        rescue
+          puts "error: #{feed.title}, #{entry.title}, #{entry.links.first}"
+        end
       end
       Video.import(videos)
     end
