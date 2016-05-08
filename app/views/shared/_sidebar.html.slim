@@ -3,9 +3,9 @@
     h3.h5 おすすめ動画
     - @recommend_videos.each do |video|
       .col.m6.l12
-        .card.xx-small
+        .card
           .card-image.waves-effect.waves-block.waves-light
             = link_to video do
               = image_tag("#{video.thumbnail}", alt: video.title, class: 'activator')
-          .card-content.small-content
-            = link_to video.title, video
+          .card-content
+            = link_to(truncate(video.title, long:33), video)

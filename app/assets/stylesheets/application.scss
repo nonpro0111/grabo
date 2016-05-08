@@ -39,26 +39,18 @@ nav.header {
   }
 }
 
-#main {
-  .card.xx-small {
-    height: 220px;
-  }
-
-  .card .card-content {
-    padding: 10px;
-  }
-
-  .card-content.small-content {
-    padding: 3px;
-    font-size: 0.7em;
-  }
+.card .card-content {
+  padding: 10px;
 }
 
-
-.recommend-list {
-  margin-right: auto;
+.card-content.small-content {
+  padding: 10px 5px;
+  font-size: 0.7em;
 }
 
 ul.pagination {
+  clear: both;
   text-align: center;
 }
+
+
