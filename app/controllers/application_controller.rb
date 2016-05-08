@@ -4,6 +4,6 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def recommend_videos
-    @recommend_videos = Video.order("RAND()").limit(5)
+    @recommend_videos = Video.order("RAND()").limit(6)
   end
 end
