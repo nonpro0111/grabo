@@ -5,7 +5,7 @@
 
 # Example:
 #
-# set :output, "/path/to/my/cron_log.log"
+set :output, "current/log/cron.log"
 #
 # every 2.hours do
 #   command "/usr/bin/some_great_command"
@@ -21,4 +21,8 @@
 
 every 30.minutes do
   rake "rss:from_youtube"
+end
+
+every 1.days do
+  rake "sitemap:rehash"
 end
