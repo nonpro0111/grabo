@@ -5,7 +5,7 @@
 
 # Example:
 #
-set :output, "current/log/cron.log"
+set :output, "/home/sqale/current/log/cron.log"
 #
 # every 2.hours do
 #   command "/usr/bin/some_great_command"
@@ -19,10 +19,14 @@ set :output, "current/log/cron.log"
 
 # Learn more: http://github.com/javan/whenever
 
-every 30.minutes do
+every 6.hours do
   rake "rss:from_youtube"
 end
 
+every 2.hours do
+  rake "monitoring:delete_banned_video"
+end
+
 every 1.days do
-  rake "sitemap:rehash"
+  rake "sitemap:refresh"
 end
