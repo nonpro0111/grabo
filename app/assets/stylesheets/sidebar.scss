@@ -1,14 +1,14 @@
 #sidebar {
 
   @media screen and (min-width: 993px){
-    .dmm-ad-vertical {
+    .dmm-ad-pc {
       margin: 0 auto;
       width: 160px;
     }
   }
 
   @media screen and (max-width: 992px){
-    .dmm-ad-vertical {
+    .dmm-ad-pc {
       display: none;
     }
   }
