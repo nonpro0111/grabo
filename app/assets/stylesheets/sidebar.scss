@@ -1,0 +1,21 @@
+#sidebar {
+
+  @media screen and (min-width: 993px){
+    .dmm-ad-vertical {
+      margin: 0 auto;
+      width: 160px;
+    }
+    .dmm-ad-horizon {
+      display: none;
+    }
+  }
+
+  @media screen and (max-width: 992px){
+    .dmm-ad-vertical {
+      display: none;
+    }
+    .dmm-ad-horizon {
+      margin: 0 auto;
+    }
+  }
+}
