@@ -1,17 +1,14 @@
 .col.m13.l10
-  .recommend-list
-    h3.h5 おすすめ動画
-    - @recommend_videos.each do |video|
-      .col.m6.l12
-        .card
-          .card-image.waves-effect.waves-block.waves-light
-            = link_to video do
-              = image_tag("#{video.thumbnail}", alt: video.title, class: 'activator')
-          .card-content
-            = link_to(truncate(video.title, long:33), video)
+  h3.h5 おすすめ動画
+  - @recommend_videos.each do |video|
+    .col.m6.l12
+      .card
+        .card-image.waves-effect.waves-block.waves-light
+          = link_to video do
+            = image_tag("#{video.thumbnail}", alt: video.title, class: 'activator')
+        .card-content
+          = link_to(truncate(video.title, long:33), video)
 
-  h3.h5 売れ筋ランキング
-  .dmm-ad-vertical
+  .dmm-ad-pc
+    h3.h5 売れ筋ランキング
     iframe src="http://blogparts.dmm.com/ranking?adid=09baaca9d4e7f066e52675f07d68e745" height="600" width="160" scrolling="no" frameborder="0"
-  .dmm-ad-horizon
-    iframe src="http://blogparts.dmm.com/ranking?adid=73f2abd07c219d5cf3bd4a273df1cbc0" height="90" width="728" scrolling="no" frameborder="0"
