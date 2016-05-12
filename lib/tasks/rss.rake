@@ -13,7 +13,7 @@ namespace :rss do
         begin
           video = Video.youtube_new(feed, entry)
           Global.idols.list.each do |idol|
-            break video.tag_list.add(idol) if video.title.index(idol)
+            video.tag_list.add(idol) if video.title.index(idol)
           end
           video.save!
         rescue
