@@ -7,7 +7,7 @@
           = link_to video do
             = image_tag("#{video.thumbnail}", alt: video.title, class: 'activator')
         .card-content
-          = link_to(truncate(video.title, long:33), video)
+          = link_to(truncate(clean_text(video.title), long:33), video)
 
   .dmm-ad-pc
     h3.h5 売れ筋ランキング

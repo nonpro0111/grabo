@@ -8,7 +8,7 @@
           = link_to video do
             = image_tag("#{video.thumbnail}", alt: video.title, class: 'activator')
         .card-content
-          = truncate(video.title, long: 50)
+          = truncate(clean_text(video.title), long: 50)
         .card-action
           = link_to '動画を見る', video
 

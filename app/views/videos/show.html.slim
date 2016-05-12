@@ -5,7 +5,7 @@ ruby:
 #video-detail.col.m12.l12
   .card-panel.embedded-video
     h2.h4
-      = @video.title
+      = clean_text(@video.title)
     .video-container
       iframe width="700" height="393" src="https://www.youtube.com/embed/#{@video.embed_code}" frameborder="0" allowfullscreen="true"
     br
