@@ -26,7 +26,3 @@ end
 every 2.hours do
   rake "monitoring:delete_banned_video"
 end
-
-every 1.days do
-  rake "sitemap:refresh"
-end
