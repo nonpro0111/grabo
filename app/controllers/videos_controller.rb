@@ -9,4 +9,8 @@ class VideosController < ApplicationController
     @video = Video.find(params[:id])
     @relation_videos = Video.order("RAND()").limit(8)
   end
+
+  def search
+    @videos = Video.tagged_with(params[:tag])
+  end
 end
