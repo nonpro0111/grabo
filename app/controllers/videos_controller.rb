@@ -1,7 +1,7 @@
 class VideosController < ApplicationController
 
   def index
-    @videos = Video.order(published_at: :desc).includes(:tags).page(params[:page])
+    @videos = Video.order(created_at: :desc).includes(:tags).page(params[:page])
   end
 
   def show
