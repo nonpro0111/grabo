@@ -11,6 +11,14 @@ ruby:
     br
     = simple_format(@video.description)
     hr
+    - if @affiliates
+      table
+        tr
+          - @affiliates.each do |affiliate|
+            td
+              = link_to affiliate.affiliate_url do
+                = image_tag(affiliate.image_url.small, alt: affiliate.title)
+    hr
     h3.h4
       | 関連動画
     ul.collection

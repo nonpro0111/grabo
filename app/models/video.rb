@@ -22,4 +22,8 @@ class Video < ActiveRecord::Base
     uri = URI.parse(URI.escape(thumbnail))
     Net::HTTP.get_response(uri).code == '404'
   end
+
+  def tagging?
+    tag_list.present?
+  end
 end

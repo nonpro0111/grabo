@@ -8,4 +8,5 @@ class ApplicationController < ActionController::Base
     @recommend_videos = Video.order("RAND()").limit(6)
     @tags = ActsAsTaggableOn::Tag.most_used(20)
   end
+
 end

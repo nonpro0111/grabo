@@ -11,10 +11,12 @@
 }
 
 #video-detail {
+  td {
+    text-align: center;
+  }
   .embedded-video {
     padding-bottom: 30px;
   }
-
   .collection {
     .collection-item.avatar {
       width: 100%;
