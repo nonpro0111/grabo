@@ -1,4 +1,8 @@
 .col.m12.l10
+  .dmm-ad
+    a href="http://www.dmm.com/monthly/prime/nonpro0111-002" target="_blank"
+      img src="http://pics.dmm.com/af/c_mt_prime/300_250.jpg" width="300" height="250" alt="見放題chライト" border="0"
+
   h3.h5 おすすめ動画
   - @recommend_videos.each do |video|
     .col.m6.l12
@@ -15,6 +19,3 @@
       = link_to tag, search_videos_path(tag: tag.name), class: "waves-effect waves-light btn-flat red lighten-2"
     br
     = link_to "すべて見る", idols_path, class: "right-link"
-  .dmm-ad-pc
-    h3.h5 売れ筋ランキング
-    iframe src="http://blogparts.dmm.com/ranking?adid=09baaca9d4e7f066e52675f07d68e745" height="600" width="160" scrolling="no" frameborder="0"

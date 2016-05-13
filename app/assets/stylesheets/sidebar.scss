@@ -1,4 +1,11 @@
 #sidebar {
+  margin-top: 30px;
+
+  .dmm-ad {
+    width: 300px;
+    margin: 0 auto;
+  }
+
   .tags {
     .btn-flat {
       padding: 0 1em;
@@ -12,16 +19,4 @@
     }
   }
 
-  @media screen and (min-width: 993px){
-    .dmm-ad-pc {
-      margin: 0 auto;
-      width: 160px;
-    }
-  }
-
-  @media screen and (max-width: 992px){
-    .dmm-ad-pc {
-      display: none;
-    }
-  }
 }
