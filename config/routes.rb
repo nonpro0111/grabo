@@ -19,6 +19,7 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :idols, only: [:index]
   # Example resource route with options:
   #   resources :products do
   #     member do

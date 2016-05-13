@@ -1,5 +1,4 @@
 class VideosController < ApplicationController
-  before_action :recommend_videos
 
   def index
     @videos = Video.order(published_at: :desc).includes(:tags).page(params[:page])
@@ -11,6 +10,7 @@ class VideosController < ApplicationController
   end
 
   def search
-    @videos = Video.tagged_with(params[:tag])
+    @tag = params[:tag]
+    @videos = Video.tagged_with(params[:tag]).page(params[:page])
   end
 end

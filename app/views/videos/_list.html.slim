@@ -1,0 +1,12 @@
+- videos.each do |video|
+  .col.m4.l3
+    .card.small
+      .card-image.waves-effect.waves-block.waves-light
+        = link_to video do
+          = image_tag("#{video.thumbnail}", alt: video.title, class: 'activator')
+      .card-content
+        = truncate(clean_text(video.title), long: 50)
+      .card-action
+        = link_to '動画を見る', video
+
+= paginate(videos)

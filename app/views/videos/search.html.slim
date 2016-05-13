@@ -1,0 +1,8 @@
+.col.m12.l11.offset-l1
+  h2.h4
+    = "#{@tag}の動画"
+  - if @videos.present?
+    = render partial: "list", locals: {videos: @videos}
+  - else
+    p
+      | ごめんなさい。見つかりませんでした。

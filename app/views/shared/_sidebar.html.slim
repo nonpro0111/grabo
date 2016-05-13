@@ -1,4 +1,4 @@
-.col.m13.l10
+.col.m12.l10
   h3.h5 おすすめ動画
   - @recommend_videos.each do |video|
     .col.m6.l12
@@ -9,6 +9,12 @@
         .card-content
           = link_to(truncate(clean_text(video.title), long:33), video)
 
+  h3.h5 アイドル
+  .tags
+    - @tags.each do |tag|
+      = link_to tag, search_videos_path(tag: tag.name), class: "waves-effect waves-light btn-flat red lighten-2"
+    br
+    = link_to "すべて見る", idols_path, class: "right-link"
   .dmm-ad-pc
     h3.h5 売れ筋ランキング
     iframe src="http://blogparts.dmm.com/ranking?adid=09baaca9d4e7f066e52675f07d68e745" height="600" width="160" scrolling="no" frameborder="0"
