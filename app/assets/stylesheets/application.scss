@@ -10,8 +10,8 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
  *= require_self
+ *= require_tree .
  */
 @import "materialize/components/color";
 @import "materialize";
@@ -29,16 +29,6 @@
   font-size: 1.64rem;
 }
 
-nav.header {
-  height: 132px;
-
-  #logo {
-    height: 100px;
-    margin-left: 20px;
-    margin-top: 20px;
-  }
-}
-
 .card .card-content {
   padding: 10px;
 }
@@ -52,5 +42,4 @@ ul.pagination {
   clear: both;
   text-align: center;
 }
-
 

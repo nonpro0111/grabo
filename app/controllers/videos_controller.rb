@@ -21,9 +21,11 @@ class VideosController < ApplicationController
   end
 
   def search
-    @tag_name = params[:tag].encode!("utf-8")
-    @videos = Video.tagged_with(@tag_name).page(params[:page])
-    set_dmm_affiliate(@tag_name)
+    tag_name = params[:tag]
+    video_count = Video.tagged_with(tag_name).size
+    @videos = Video.tagged_with(tag_name).page(params[:page])
+    @result_heading = "#{tag_name}  #{video_count}件"
+    set_dmm_affiliate(tag_name)
   end
 
   private
@@ -34,11 +36,12 @@ class VideosController < ApplicationController
     def set_dmm_affiliate(keyword)
       begin
         set_dmm_client
-        @affiliates = @client.item_list('BiS', site: 'DMM.com',
+        @affiliates = @client.order("rank").item_list('BiS', site: 'DMM.com',
                                       service: 'digital', floor: 'idol', hits: 3, keyword: keyword).items
-        if @affiliates.empty?
-          @affiliates = @client.item_list('BiS', site: 'DMM.com',
-                                      service: 'digital', floor: 'idol', hits: 3).items
+        if @affiliates.size < 3
+          num = 3 - @affiliates.size
+          @affiliates += @client.order("review").item_list('BiS', site: 'DMM.com',
+                                      service: 'digital', floor: 'idol', hits: num).items
         end
       rescue => e
         logger.error("----- DMM Afiliate -----")

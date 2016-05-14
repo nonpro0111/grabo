@@ -1,7 +1,12 @@
 #video-list.col.m12.l11.offset-l1
-  br
   - if @videos.present?
+    h3.h4
+      = @result_heading
     = render partial: "list", locals: {videos: @videos}
+
+    - if @affiliates
+      hr
+      = render partial: "affiliate_items", locals: { affiliates: @affiliates }
   - else
     p
       | ごめんなさい。見つかりませんでした。
