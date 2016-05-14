@@ -16,8 +16,9 @@ namespace :rss do
             video.tag_list.add(idol) if video.title.index(idol)
           end
           video.save!
-        rescue
+        rescue => e
           puts "error: #{feed.title}, #{entry.title}, #{entry.links.first}"
+          puts e.message
         end
       end
     end

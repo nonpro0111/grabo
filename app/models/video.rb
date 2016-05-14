@@ -4,7 +4,8 @@ class Video < ActiveRecord::Base
 
   def self.youtube_new(feed, entry)
     title = entry.title.chars.select{|c| c.bytesize < 4 }.join('')
-    description = entry.media_description.first.chars.select{|c| c.bytesize < 4 }.join('')
+    description = entry.media_description.first
+    description = description.chars.select{|c| c.bytesize < 4 }.join('') if description
 
     Video.new(
       title: title,
