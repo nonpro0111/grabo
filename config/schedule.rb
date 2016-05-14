@@ -23,6 +23,10 @@ every 6.hours do
   rake "rss:from_youtube"
 end
 
-every 2.hours do
+every 1.hours do
   rake "monitoring:delete_banned_video"
+end
+
+every 1.days do
+  rake "sitemap:refresh"
 end

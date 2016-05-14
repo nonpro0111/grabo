@@ -9,8 +9,5 @@ namespace :monitoring do
       end
     end
     puts "monitoring end"
-    puts "refresh sitemap start"
-    Rake::Task["sitemap:refresh"].execute
-    puts "refresh sitemap end"
   end
 end
