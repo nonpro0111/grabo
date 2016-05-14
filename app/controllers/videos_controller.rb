@@ -21,7 +21,7 @@ class VideosController < ApplicationController
   end
 
   def search
-    @tag_name = params[:tag_name]
+    @tag_name = params[:tag].encode!("utf-8")
     @videos = Video.tagged_with(@tag_name).page(params[:page])
     set_dmm_affiliate(@tag_name)
   end
