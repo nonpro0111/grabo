@@ -29,14 +29,25 @@
   font-size: 1.64rem;
 }
 
-.card .card-content {
-  padding: 10px;
+
+.card.small {
+  height: 240px;
+
+  .card-content {
+    padding: 10px;
+  }
+
+  .card-action {
+    padding: 10px;
+  }
 }
+
 
 .card-content.small-content {
   padding: 10px 5px;
   font-size: 0.7em;
 }
+
 
 ul.pagination {
   clear: both;
