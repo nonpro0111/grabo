@@ -28,6 +28,13 @@ class VideosController < ApplicationController
     set_dmm_affiliate(tag_name)
   end
 
+  def feed
+    @videos = Video.order(created_at: :desc).limit(5)
+    respond_to do |format|
+      format.rss { render :layout => false }
+    end
+  end
+
   private
     def set_dmm_client
       @client = DMM.new(:api_id => ENV['DMM_API_ID'], :affiliate_id => ENV['DMM_AFI_ID'], :result_only => true)

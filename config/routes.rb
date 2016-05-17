@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   resources :videos, only: [:index, :show] do
     collection do
       get 'search'
+      get 'feed'
     end
   end
 

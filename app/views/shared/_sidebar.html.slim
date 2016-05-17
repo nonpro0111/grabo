@@ -26,3 +26,11 @@
   br
   a href="http://www.blogmura.com/point/01472346.html"
     img src="http://blogparts.blogmura.com/parts_image/user/pv01472346.gif" alt="PVアクセスランキング にほんブログ村"
+  br
+  h4.h5 お知らせ
+  = link_to 'お問い合わせ', new_contact_path
+  br
+  = link_to feed_videos_path(format: :rss) do
+    i.material-icons
+      | settings_input_antenna
+    | RSS
