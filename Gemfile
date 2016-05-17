@@ -23,6 +23,7 @@ gem 'kaminari'
 gem 'whenever', require: false
 gem 'acts-as-taggable-on', '~> 3.4'
 gem 'ruby-dmm'
+gem 'slack-notifier'
 
 gem 'meta-tags', :require => 'meta_tags'
 gem 'sitemap_generator'
