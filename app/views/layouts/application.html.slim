@@ -11,8 +11,11 @@ html
     #container
       nav
         .nav-wrapper
-          = link_to root_path do
-            h1.title Gravure Tube 〜 グラビアちゅーぶ 〜
+          = link_to root_path, class: 'brand-logo' do
+            | Gravure Tube 〜 グラビアちゅーぶ 〜
+          ul#nav-mobile.right.hide-on-med-and-down
+            li
+              = link_to 'お問い合わせ', new_contact_path
       .row
         #main.col.s12.m12.l8
           = yield

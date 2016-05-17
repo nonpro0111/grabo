@@ -1,0 +1,21 @@
+= form_for @contact do |f|
+  - if @contact.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@contact.errors.count, "error")} prohibited this contact from being saved:"
+      ul
+        - @contact.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :email
+    = f.text_field :email
+  .field
+    = f.label :title
+    = f.text_field :title
+  .field
+    = f.label :body
+    = f.text_area :body, id: 'textarea1', class: 'materialize-textarea'
+  .actions = button_tag type: "submit", class: 'btn waves-effect waves-light' do
+    | 送信
+    i.material-icons.right
+      | send
