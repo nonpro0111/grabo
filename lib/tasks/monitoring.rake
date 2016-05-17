@@ -5,6 +5,7 @@ namespace :monitoring do
     Video.find_each do |video|
       if video.banned?
         puts "delete id: #{video.id}, url: #{video.url}"
+        video.tag_list.clear
         video.delete
       end
     end
