@@ -26,7 +26,6 @@ class VideosController < ApplicationController
     video_count = Video.tagged_with(tag_name).size
     @videos = Video.tagged_with(tag_name).page(params[:page])
     @result_heading = "#{tag_name}  #{video_count}件"
-    set_dmm_affiliate(tag_name)
   end
 
   def feed
