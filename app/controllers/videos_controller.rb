@@ -44,7 +44,7 @@ class VideosController < ApplicationController
       begin
         set_dmm_client
         @affiliates = @client.order("rank").item_list('BiS', site: 'DMM.com',
-                                      service: 'digital', floor: 'idol', hits: 3, keyword: keyword).items
+                                      service: 'digital', floor: 'idol', hits: 3, keyword: keyword.force_encoding("utf-8")).items
         if @affiliates.size < 3
           num = 3 - @affiliates.size
           @affiliates += @client.order("review").item_list('BiS', site: 'DMM.com',
