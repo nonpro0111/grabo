@@ -8,9 +8,10 @@ class VideosController < ApplicationController
     @video = Video.find(params[:id])
     
     if @video.tagging?
-      tag_name = @video.tag_list.first
+      tag_name = @video.tags.first.name
+      @display_tag_name = @video.tags.first.name
       random_videos = Video.order("RAND()").limit(2)
-      same_tag_videos = Video.tagged_with(tag_name).limit(3)
+      same_tag_videos = Video.tagged_with(@tag_name).limit(3)
       @relation_videos = same_tag_videos + random_videos
     else
       @relation_videos = Video.order("RAND()").limit(5)

@@ -6,6 +6,9 @@ ruby:
   .card-panel.embedded-video
     h2.h4
       = clean_text(@video.title)
+    - if @display_tag_name
+      | タグ：
+      = link_to @display_tag_name, search_videos_path(tag: @display_tag_name), class: "waves-effect waves-teal btn-flat btn-small red lighten-2 mb10"
     .video-container
       iframe width="700" height="393" src="https://www.youtube.com/embed/#{@video.embed_code}" frameborder="0" allowfullscreen="true"
     br
