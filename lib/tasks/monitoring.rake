@@ -18,7 +18,8 @@ namespace :monitoring do
       next if video.tag_list.present?
 
       Global.idols.list.each do |idol|
-        if video.title.index(idol)
+        strip_title = video.title.gsub(/(\s|　)+/, '')
+        if strip_title.index(idol)
           video.tag_list.add(idol)
         end
       end

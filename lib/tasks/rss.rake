@@ -13,7 +13,8 @@ namespace :rss do
         begin
           video = Video.youtube_new(feed, entry)
           Global.idols.list.each do |idol|
-            video.tag_list.add(idol) if video.title.index(idol)
+            strip_title = video.title.gsub(/(\s|　)+/, '')
+            video.tag_list.add(idol) if strip_title.index(idol)
           end
           video.save!
         rescue => e
