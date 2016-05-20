@@ -2,11 +2,9 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#video-list {
-  @media screen and (max-width: 1179px){
-    .dmm-ad {
-      display: none;
-    }
+@media screen and (max-width: 549px){
+  table.dmm-affiliate tr td:last-child {
+    display: none;
   }
 }
 
