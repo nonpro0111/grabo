@@ -1,13 +1,11 @@
 - videos.each do |video|
   .col.s12.m4.l3
-    .card.small
+    .card
       .card-image.waves-effect.waves-block.waves-light
         = link_to video do
           = image_tag("#{video.thumbnail}", alt: video.title, class: 'activator')
-      .card-content
-        = truncate(clean_text(video.title))
-      .card-action
-        = link_to '動画を見る', video
+      .card-content.small-content
+        = link_to(truncate(clean_text(video.title), long:30), video)
 
 = paginate(videos)
 

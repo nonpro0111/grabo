@@ -1,17 +1,17 @@
-.col.m12.l10
+.col.s12.m12.l10
   .dmm-ad
     a href="http://www.dmm.com/monthly/prime/nonpro0111-002" target="_blank"
       img src="http://pics.dmm.com/af/c_mt_prime/300_250.jpg" width="300" height="250" alt="見放題chライト" border="0"
 
   h3.h5 おすすめ動画
   - @recommend_videos.each do |video|
-    .col.m6.l12
+    .col.s12.m6.l12
       .card
         .card-image.waves-effect.waves-block.waves-light
           = link_to video do
             = image_tag("#{video.thumbnail}", alt: video.title, class: 'activator')
-        .card-content
-          = link_to(truncate(clean_text(video.title), long:33), video)
+        .card-content.small-content
+          = link_to(truncate(clean_text(video.title), long:30), video)
 
   h3.h5 アイドル
   .tags
