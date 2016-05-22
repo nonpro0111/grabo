@@ -4,9 +4,15 @@ namespace :rss do
     puts "start rss:from_youtube"
     Feedjira::Feed.add_common_feed_entry_elements("media:thumbnail", :value => :url, :as => :media_thumbnail_url)
     Feedjira::Feed.add_common_feed_entry_elements("media:description", :as => :media_description)
-    
+    video_count = 0 
     Global.feeds.youtube.each do |url|
-      feed = Feedjira::Feed.fetch_and_parse(url)
+      begin
+        feed = Feedjira::Feed.fetch_and_parse(url)
+      rescue => e
+        puts e.message
+        puts url
+        next
+      end
       last_entry = Video.where(channel: feed.title).order(:published_at).last
       feed.entries.each do |entry|
         next if last_entry && last_entry.published_at >= entry.published.localtime
@@ -17,12 +23,13 @@ namespace :rss do
             video.tag_list.add(idol) if strip_title.index(idol)
           end
           video.save!
+          video_count += 1
         rescue => e
           puts "error: #{feed.title}, #{entry.title}, #{entry.links.first}"
           puts e.message
         end
       end
     end
-    puts "end rss:from_youtube"
+    puts "end rss:from_youtube! Add #{video_count} videos!!"
   end
 end
