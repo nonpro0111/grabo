@@ -1,6 +1,8 @@
 ruby:
   set_meta_tags title: @video.title
   set_meta_tags description: @video.description
+javascript:
+  !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
 
 #video-detail.col.s12.m12.l12
   .card-panel.embedded-video
@@ -9,6 +11,10 @@ ruby:
     - if @display_tag_name
       | タグ：
       = link_to @display_tag_name, search_videos_path(search: @display_tag_name), class: "waves-effect waves-teal btn-flat btn-small red lighten-2 mb10"
+    .tweet-share
+      = link_to "ツイート", "https://twitter.com/share", class: "twitter-share-button",
+        :"data-via" =>  "gravuretube_xyz", :"data-lang" => "ja", :"data-size" => "large",
+        :"data-hashtags" => "グラビアアイドル,グラビア動画,#{@display_tag_name}"
     .video-container
       iframe width="700" height="393" src="https://www.youtube.com/embed/#{@video.embed_code}" frameborder="0" allowfullscreen="true"
     br
