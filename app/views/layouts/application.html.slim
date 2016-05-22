@@ -1,11 +1,11 @@
 doctype html
 html
   head
-    = render partial: 'layouts/meta_tags'
     = stylesheet_link_tag 'https://fonts.googleapis.com/icon?family=Material+Icons'
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
+    = render partial: 'layouts/meta_tags', locals: {video: @video}
     meta name="viewport" content="width=device-width, initial-scale=1"
   body
     = render partial: 'layouts/google_analytics'

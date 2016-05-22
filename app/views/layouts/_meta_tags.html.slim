@@ -3,19 +3,49 @@ meta content='NOYDIR' name='ROBOTS'
 meta content='NOODP' name='ROBOTS'
 
 ruby:
-  default_meta_tags = {
-    site: 'グラビアちゅーぶ',
-    title: 'グラビアちゅーぶ',
-    description: '人気グラビアアイドルのおすすめ動画をまとめています。かわいい、エロい、美人なアイドルや巨乳アイドル、微乳アイドルなど幅広く掲載しています。グラビアアイドル動画まとめサイトです。',
-    keywords: 'グラビア,動画,イメージビデオ,エロい,かわいい,美女,美少女,巨乳,微乳,ビキニ,水着,グラビアアイドル',
-    og: {
-      title: :title,
-      type: 'website',
-      url: root_url,
-      image: image_url('logo.png'),
-      site_name: :site,
-      description: :description,
-      locale: 'ja_JP'
+  description = '人気グラビアアイドルのおすすめ動画をまとめています。かわいい、エロい、美人なアイドルや巨乳アイドル、微乳アイドルなど幅広く掲載しています。グラビアアイドル動画まとめサイトです。'
+  keywords = 'グラビア,動画,イメージビデオ,エロい,かわいい,美女,美少女,巨乳,微乳,ビキニ,水着,グラビアアイドル'
+  if video
+    keywords = "#{video.tags.first.name}," + keywords if video.tagging?
+    meta_tags = {
+      site: 'グラビアちゅーぶ',
+      title: video.title,
+      description: description + "#{video.title}。#{video.description}",
+      keywords: keywords,
+      og: {
+        title: :title,
+        type: 'website',
+        url: "http://www.gravure-tube.xyz/videos/#{video.id}",
+        image: video.thumbnail,
+        site_name: :site,
+        description: :description,
+        locale: 'ja_JP'
+      },
+      twitter: {
+        card: "summary",
+        site: :site,
+        title: :title,
+        description: :description,
+        image: "http://www.gravure-tube.xyz/videos/#{video.id}" 
+      }
     }
-  }
-= display_meta_tags default_meta_tags
+  else
+    meta_tags = {
+      site: 'グラビアちゅーぶ',
+      title: 'グラビアちゅーぶ',
+      description: description,
+      keywords: keywords,
+      og: {
+        title: :title,
+        type: 'website',
+        url: root_url,
+        image: image_url('logo.png'),
+        site_name: :site,
+        description: :description,
+        locale: 'ja_JP'
+      }
+    }
+  end
+
+meta name="viewport" content="width=device-width, initial-scale=1"
+= display_meta_tags meta_tags
