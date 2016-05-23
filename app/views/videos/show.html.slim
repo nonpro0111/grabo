@@ -18,7 +18,7 @@ javascript:
     = simple_format(@video.description)
     hr
     - if @affiliates
-      = render partial: "affiliate_items", locals: { affiliates: @affiliates }
+      = render partial: "dmm_related_items", locals: { affiliates: @affiliates }
     h3.h4
       | 関連動画
     ul.collection

@@ -1,12 +1,12 @@
-#video-list.col.m12.l11.offset-l1
+#video-list.col.s12.m12.l11.offset-l1
   - if @videos.present?
     h3.h4
       = @result_heading
     = render partial: "list", locals: {videos: @videos}
-
-    - if @affiliates
-      hr
-      = render partial: "affiliate_items", locals: { affiliates: @affiliates }
   - else
     p
       | ごめんなさい。見つかりませんでした。
+  br
+  .dmm-ranking
+    iframe src="http://blogparts.dmm.com/ranking?adid=f49d7f99ad58a8c18f529fcb4c5a98ce" height="250" width="300" scrolling="no" frameborder="0"
+    iframe src="http://blogparts.dmm.com/ranking?adid=815b42642be4c167389db76399bc86ee" height="250" width="300" scrolling="no" frameborder="0"
