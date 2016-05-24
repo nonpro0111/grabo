@@ -8,6 +8,19 @@
   }
 }
 
+@media screen and (min-width: 650px){
+  .dmm-ranking {
+    width: 600px;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 649px){
+  .dmm-ranking {
+    display: none;
+  }
+}
+
 #video-detail {
   h2 {
     margin-bottom: 0.5rem;
