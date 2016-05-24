@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   before_action :sidebar
 
   def sidebar
-    @recommend_videos = Video.order("RAND()").limit(6)
+    @recommend_videos = Video.popular
     @tags = ActsAsTaggableOn::Tag.most_used(20)
   end
 
