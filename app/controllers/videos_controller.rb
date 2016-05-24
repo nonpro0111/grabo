@@ -6,6 +6,7 @@ class VideosController < ApplicationController
 
   def show
     @video = Video.find(params[:id])
+    @video.increment!(:pv)
     
     if @video.tagging?
       tag_name = @video.tags.first.name
