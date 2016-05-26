@@ -19,8 +19,12 @@ namespace :monitoring do
 
       Global.idols.list.each do |idol|
         strip_title = video.title.gsub(/(\s|　)+/, '')
-        if strip_title.index(idol)
-          video.tag_list.add(idol)
+        next unless strip_title.index(idol)
+        
+        video.tag_list.add(idol)
+        if video.save
+          puts "add tag!!"
+          puts "#{idol}, #{video.id}, #{video.title}"
         end
       end
     end
