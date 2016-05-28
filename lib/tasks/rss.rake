@@ -3,7 +3,7 @@ namespace :rss do
   task :from_youtube => :environment do
     puts "start rss:from_youtube"
     Feedjira::Feed.add_common_feed_entry_elements("media:thumbnail", :value => :url, :as => :media_thumbnail_url)
-    Feedjira::Feed.add_common_feed_entry_elements("media:description", :as => :media_description)
+    Feedjira::Feed.add_common_feed_entry_elements("media:description", :as => :description)
     video_count = 0 
     Global.feeds.youtube.each do |url|
       begin
@@ -18,10 +18,7 @@ namespace :rss do
         next if last_entry && last_entry.published_at >= entry.published.localtime
         begin
           video = Video.youtube_new(feed, entry)
-          Global.idols.list.each do |idol|
-            strip_title = video.title.gsub(/(\s|　)+/, '')
-            video.tag_list.add(idol) if strip_title.index(idol)
-          end
+          video.set_tag
           video.save!
           video_count += 1
         rescue => e

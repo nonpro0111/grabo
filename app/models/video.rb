@@ -6,7 +6,7 @@ class Video < ActiveRecord::Base
 
   def self.youtube_new(feed, entry)
     title = entry.title.chars.select{|c| c.bytesize < 4 }.join('')
-    description = entry.media_description.first
+    description = entry.description.first
     description = description.chars.select{|c| c.bytesize < 4 }.join('') if description
 
     Video.new(
@@ -19,6 +19,13 @@ class Video < ActiveRecord::Base
       url: entry.links.first,
       description: description
     )
+  end
+
+  def set_tag
+    Global.idols.list.each do |idol|
+      strip_title = title.gsub(/(\s|　)+/, '')
+      tag_list.add(idol) if strip_title.index(idol)
+    end
   end
 
   def banned?
