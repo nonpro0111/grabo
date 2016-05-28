@@ -2,8 +2,6 @@ namespace :rss do
   desc "youtube rss 取得"
   task :from_youtube => :environment do
     puts "start rss:from_youtube"
-    Feedjira::Feed.add_common_feed_entry_elements("media:thumbnail", :value => :url, :as => :media_thumbnail_url)
-    Feedjira::Feed.add_common_feed_entry_elements("media:description", :as => :description)
     video_count = 0 
     Global.feeds.youtube.each do |url|
       begin
