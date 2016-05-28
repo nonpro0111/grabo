@@ -13,7 +13,8 @@ javascript:
         :"data-via" =>  "gravuretube_xyz", :"data-lang" => "ja", :"data-size" => "large",
         :"data-hashtags" => "グラビアアイドル,グラビア動画,#{@display_tag_name}"
     .video-container
-      iframe width="700" height="393" src="https://www.youtube.com/embed/#{@video.embed_code}" frameborder="0" allowfullscreen="true"
+      = render partial: "embed_#{@video.original_site}", locals: { video: @video }
+
     br
     = simple_format(@video.description)
     hr
