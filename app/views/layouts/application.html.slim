@@ -8,7 +8,8 @@ html
     = render partial: 'layouts/meta_tags', locals: {video: @video}
     meta name="viewport" content="width=device-width, initial-scale=1"
   body
-    = render partial: 'layouts/google_analytics'
+    - if Rails.env.production?
+      = render partial: 'layouts/google_analytics'
     #container
       nav
         .nav-wrapper
