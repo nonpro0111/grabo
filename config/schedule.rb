@@ -21,6 +21,7 @@ set :output, "/home/sqale/current/log/cron.log"
 
 every 6.hours do
   rake "rss:from_youtube"
+  rake "rss:from_fc2"
 end
 
 every 1.hours do
