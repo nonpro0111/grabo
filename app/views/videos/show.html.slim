@@ -14,7 +14,8 @@ javascript:
         :"data-hashtags" => "グラビアアイドル,グラビア動画,#{@display_tag_name}"
     .video-container
       = render partial: "embed_#{@video.original_site}", locals: { video: @video }
-
+      p.red-text
+        | ※動画が表示されない場合は、再読み込みしてください。
     br
     = simple_format(@video.description)
     hr
