@@ -1,14 +1,13 @@
 .col.s12.m12.l10
   = render partial: 'shared/sidebar_top'
-  h3.h5 おすすめ動画
-  - @recommend_videos.each do |video|
-    .col.s12.m6.l12
-      .card
-        .card-image.waves-effect.waves-block.waves-light
-          = link_to video do
-            = image_tag("#{video.thumbnail}", alt: video.title, class: 'activator')
-        .card-content.small-content
-          = link_to(truncate(clean_text(video.title), long:30), video)
+  h3.h5 人気動画
+  ul.collection
+    - @popular_videos.each do |video|
+      li.collection-item.avatar
+        = image_tag("#{video.thumbnail}", alt: video.title, class: 'responsive-img circle')
+        = link_to(video.title, video, class: "collection-link")
+        p
+          = truncate(video.description, length: 50)
 
   h3.h5 アイドル
   .tags
