@@ -32,9 +32,7 @@ javascript:
       - @relation_videos.each do |video|
         li.collection-item.avatar
           = image_tag("#{video.thumbnail}", alt: video.title, class: 'responsive-img circle')
-          span.title.blue-text
-            = video.title
           = link_to(video.title, video, class: "collection-link")
           p
-            = truncate(video.description, long: 200, length: 170)
+            = truncate(video.description, length: 170)
 script src="http://adm.shinobi.jp/s/e6df17ae43062a36d20720497d7b752d"

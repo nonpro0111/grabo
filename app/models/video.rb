@@ -2,7 +2,7 @@ require 'net/http'
 class Video < ActiveRecord::Base
   acts_as_taggable            # acts_as_taggable_on :tags のエイリアス
 
-  scope :popular, -> { order(pv: :desc).limit(4) }
+  scope :popular, -> { order(pv: :desc).limit(10) }
 
   class << self
     def youtube_new(feed, entry)
