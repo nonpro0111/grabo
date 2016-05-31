@@ -36,16 +36,23 @@
 }
 
 @media screen and (min-width: 993px) {
-  .card-content.small-content {
-    padding: 8px;
-    height: 88px;
+  .card {
+    height: 185px;
+
+    .card-content.small-content {
+      padding: 8px;
+      height: 88px;
+    }
   }
 }
 
 @media screen and (min-width: 601px) and (max-width: 992px) {
-  .card-content.small-content {
-    padding: 8px;
-    height: 68px;
+  .card {
+    height: 240px;
+    .card-content.small-content {
+      padding: 8px;
+      height: 68px;
+    }
   }
 }
 
