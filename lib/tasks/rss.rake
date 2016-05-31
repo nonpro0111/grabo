@@ -57,7 +57,7 @@ namespace :rss do
   task :from_niconico => :environment do
     puts "start"
     video_count = 0
-    Global.idols.list.each do |idol|
+    Global.idols.nico_list.each do |idol|
       url = URI.encode("http://www.nicovideo.jp/tag/#{idol}?sort=f&rss=2.0")
       begin
         feed = Feedjira::Feed.fetch_and_parse(url)
@@ -70,7 +70,7 @@ namespace :rss do
         next if last_entry && last_entry.published_at >= entry.published.localtime
         begin
           video = Video.niconico_new(feed, entry)
-          video.set_tag
+          video.tag_list.add(idol)
           video.save!
           video_count += 1
         rescue => e
