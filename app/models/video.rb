@@ -38,6 +38,23 @@ class Video < ActiveRecord::Base
         description: description
       )
     end
+
+    def niconico_new(feed, entry)
+      title = entry.title.chars.select{|c| c.bytesize < 4 }.join('')
+      html_content = Nokogiri::HTML(entry.summary)
+      description = html_content.css('body').css('.nico-description').text
+
+      Video.new(
+        title: title,
+        thumbnail: html_content.css('img').first.attributes["src"].value,
+        original_site: 'niconico',
+        embed_code: entry.url.match(/watch\/(\w+)/)[1],
+        published_at: entry.published,
+        channel: feed.title,
+        url: entry.url,
+        description: description
+      )
+    end
   end
 
   def set_tag
