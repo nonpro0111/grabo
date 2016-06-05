@@ -5,7 +5,7 @@
         = link_to video do
           = image_tag("#{video.thumbnail}", alt: video.title, class: 'activator')
       .card-content.small-content
-        = link_to(truncate(clean_text(video.title), long:30), video)
+        = link_to(truncate(clean_text(video.title), long:25), video)
 
 = paginate(videos)
 

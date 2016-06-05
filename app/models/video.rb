@@ -7,12 +7,12 @@ class Video < ActiveRecord::Base
   class << self
     def youtube_new(feed, entry)
       title = entry.title.chars.select{|c| c.bytesize < 4 }.join('')
-      description = entry.summary.first
+      description = entry.summary
       description = description.chars.select{|c| c.bytesize < 4 }.join('') if description
 
       Video.new(
         title: title,
-        thumbnail: entry.media_thumbnail_url.first,
+        thumbnail: entry.media_thumbnail_url,
         original_site: 'youtube',
         embed_code: entry.links.first.match(/watch\?v=(\w+)/)[1],
         published_at: entry.published,
@@ -23,7 +23,7 @@ class Video < ActiveRecord::Base
     end
 
     def fc2_new(feed, entry)
-      title = entry.title.chars.select{|c| c.bytesize < 4 }.join('')
+      title = entry.title.chars.select{|c| c.bytesize < 5 }.join('')
       html_content = Nokogiri::HTML(entry.summary)
       description = html_content.css('body').first.text
 
