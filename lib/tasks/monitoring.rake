@@ -8,6 +8,7 @@ namespace :monitoring do
         video.tag_list.clear
         video.delete
       end
+      sleep 1
     end
     puts "monitoring end"
   end

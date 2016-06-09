@@ -38,18 +38,17 @@ class VideosController < ApplicationController
 
   private
     def set_dmm_client
-      @client = DMM.new(:api_id => ENV['DMM_API_ID'], :affiliate_id => ENV['DMM_AFI_ID'], :result_only => true)
+      @client = DMM.new(:api_id => ENV['DMM_API_ID'], :affiliate_id => ENV['DMM_AFI_ID'])
     end
 
     def set_dmm_affiliate(keyword)
       begin
         set_dmm_client
-        @affiliates = @client.order("rank").item_list('BiS', site: 'DMM.com',
-                                      service: 'digital', floor: 'idol', hits: 3, keyword: keyword.force_encoding("utf-8")).items
+        @affiliates = @client.product(:site => 'DMM.com', :keyword => keyword.force_encoding("utf-8"), :sort => 'rank', :hits => 3).result[:items]
         if @affiliates.size < 3
           num = 3 - @affiliates.size
-          @affiliates += @client.order("review").item_list('BiS', site: 'DMM.com',
-                                      service: 'digital', floor: 'idol', hits: num).items
+          @affiliates << @client.product(:site => 'DMM.com', :service => 'digital', :floor => 'idol', :sort => 'rank', :hits => num).result[:items]
+          @affiliates.faltten!
         end
       rescue => e
         logger.error("----- DMM Afiliate -----")
