@@ -44,7 +44,7 @@ class VideosController < ApplicationController
     def set_dmm_affiliate(keyword)
       begin
         set_dmm_client
-        @affiliates = @client.product(:site => 'DMM.com', :keyword => keyword.force_encoding("utf-8"), :sort => 'rank', :hits => 3).result[:items]
+        @affiliates = @client.product(:site => 'DMM.com', :keyword => keyword.force_encoding("utf-8"), :service => 'digital', :floor => 'idol', :sort => 'rank', :hits => 3).result[:items]
         if @affiliates.size < 3
           num = 3 - @affiliates.size
           @affiliates << @client.product(:site => 'DMM.com', :service => 'digital', :floor => 'idol', :sort => 'rank', :hits => num).result[:items]
