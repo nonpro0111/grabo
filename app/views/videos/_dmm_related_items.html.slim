@@ -5,7 +5,7 @@ table.dmm-affiliate
         = link_to affiliate[:affiliateURL] do
           = image_tag(affiliate[:imageURL][:small], alt: affiliate[:title])
         br
-        = "価格："
+        価格：
         span style="color:red;"
           = "#{affiliate[:prices][:price]}円"
 hr

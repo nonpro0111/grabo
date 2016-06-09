@@ -48,7 +48,7 @@ class VideosController < ApplicationController
         if @affiliates.size < 3
           num = 3 - @affiliates.size
           @affiliates << @client.product(:site => 'DMM.com', :service => 'digital', :floor => 'idol', :sort => 'rank', :hits => num).result[:items]
-          @affiliates.faltten!
+          @affiliates.flatten!
         end
       rescue => e
         logger.error("----- DMM Afiliate -----")
