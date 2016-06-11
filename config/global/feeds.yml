@@ -1,5 +1,7 @@
 default:
   youtube:
+    - https://www.youtube.com/feeds/videos.xml?channel_id=UCG5C6ymGnKWJXuiVc6mthBw # 動画ちゃんねるオススメ
+    - https://www.youtube.com/feeds/videos.xml?channel_id=UCjKIgYRHudpMiFxwHPfrMcw # gilgamesh
     - https://www.youtube.com/feeds/videos.xml?channel_id=UC8dwPSQ5DOJGtwhmcNhNjSw # ヤンマガch 講談社
     - https://www.youtube.com/feeds/videos.xml?channel_id=UCrJ0g7xuENFH5h4XyuDGltw # 18man
     - https://www.youtube.com/feeds/videos.xml?channel_id=UCyh0e1_dwRavk1NTLaAPklA # SUKIYA TV
@@ -40,3 +42,5 @@ default:
     - http://video.fc2.com/rss/member/mb_feed.php?mbid=11692696 # エスデジタル
     - http://video.fc2.com/rss/member/mb_feed.php?mbid=12648105 # japan
     - http://video.fc2.com/rss/member/mb_feed.php?mbid=90574862 # イーネットフロンティア
+    - http://video.fc2.com/rss/member/mb_feed.php?mbid=45142242 # U18.tv
+    - http://video.fc2.com/rss/member/mb_feed.php?mbid=52350916 # 株式会社アイロゴス
