@@ -57,9 +57,13 @@
 }
 
 @media screen and (max-width: 600px) {
-  .card-content.small-content {
-    padding: 8px;
-    height: 58px;
+  .card {
+    height: 150px;
+    .card-content.small-content {
+      padding: 8px;
+      height: 58px;
+      font-size: 0.8em;
+    }
   }
 }
 
