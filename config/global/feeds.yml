@@ -35,6 +35,7 @@ default:
     - https://www.youtube.com/feeds/videos.xml?channel_id=UCw855t6RuS_tc2m2qitfbwQ # IIIIIXCLIPS
     - https://www.youtube.com/feeds/videos.xml?channel_id=UCQE4xNVlAI2FSnnqvNOuV1g # Miracle24
     - https://www.youtube.com/feeds/videos.xml?channel_id=UCsY1SO7rS175xnZjQMcOZeA # gravure02
+    - https://www.youtube.com/feeds/videos.xml?channel_id=UCA2woNSSaSyaJkZIIj7axsg # Gaku Tsujimoto
   niconico:
     - http://www.nicovideo.jp/tag/#{tag名}?sort=f&rss=2.0
   fc2:
