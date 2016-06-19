@@ -1,6 +1,6 @@
 #video-list.col.s12.m12.l11.offset-l1
   - if @videos.present?
-    h3.h4
+    h2.h4
       = @result_heading
     = render partial: "list", locals: {videos: @videos}
   - else

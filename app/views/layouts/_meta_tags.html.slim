@@ -29,6 +29,13 @@ ruby:
         image: "http://www.gravure-tube.xyz/videos/#{video.id}" 
       }
     }
+  elsif search_result 
+    meta_tags = {
+      site: 'グラビアちゅーぶ',
+      title: search_result,
+      description: description + "#{search_result}です。",
+      keywords: keywords
+    }
   else
     meta_tags = {
       site: 'グラビアちゅーぶ',

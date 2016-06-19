@@ -5,7 +5,7 @@ html
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
-    = render partial: 'layouts/meta_tags', locals: {video: @video}
+    = render partial: 'layouts/meta_tags', locals: {video: @video, search_result: @result_heading}
     meta name="viewport" content="width=device-width, initial-scale=1"
   body
     - if Rails.env.production?
