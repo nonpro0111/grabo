@@ -3,6 +3,7 @@ class Video < ActiveRecord::Base
   acts_as_taggable            # acts_as_taggable_on :tags のエイリアス
 
   scope :popular, -> { order(pv: :desc).limit(10) }
+  scope :within_two_month, -> { where("created_at > ?", 2.month.ago) }
 
   class << self
     def youtube_new(feed, entry)
