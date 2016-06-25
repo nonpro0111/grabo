@@ -14,7 +14,8 @@ html
       nav
         .nav-wrapper
           = link_to root_path, class: 'brand-logo' do
-            h1.h5 グラビアちゅーぶ
+            h1.h5 
+              | グラビアちゅーぶ
           ul.right.hide-on-med-and-down
             li
               = link_to 'お問い合わせ', new_contact_path
@@ -23,7 +24,9 @@ html
                 i.material-icons
                   | settings_input_antenna
       .row
-        .col.s10.m8.l4.offset-m2.offset-s1.offset-l4
+        h2.h5.red-text.text-lighten-2
+          | セクシーグラビア動画見放題のグラビアちゅーぶ!!
+        .col.s12.m8.l4.offset-m2.offset-l4
           = form_tag(search_videos_path, method: "get", class: "search-form") do
             .input-field
               = text_field_tag 'search', '', :required => true, placeholder: "タグ検索"

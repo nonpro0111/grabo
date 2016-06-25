@@ -5,10 +5,11 @@ meta content='NOODP' name='ROBOTS'
 ruby:
   description = '人気グラビアアイドルのおすすめ動画をまとめています。かわいい、エロい、美人なアイドルや巨乳アイドル、微乳アイドルなど幅広く掲載しています。グラビアアイドル動画まとめサイトです。'
   keywords = 'グラビア,動画,イメージビデオ,エロい,かわいい,美女,美少女,巨乳,微乳,ビキニ,水着,グラビアアイドル'
+  site_name = 'グラビアちゅーぶ　〜セクシーグラビア動画見放題〜'
   if video
     keywords = "#{video.tags.first.name}," + keywords if video.tagging?
     meta_tags = {
-      site: 'グラビアちゅーぶ',
+      site: site_name,
       title: video.title,
       description: description + "#{video.title}。#{video.description}",
       keywords: keywords,
@@ -31,15 +32,15 @@ ruby:
     }
   elsif search_result 
     meta_tags = {
-      site: 'グラビアちゅーぶ',
+      site: site_name,
       title: search_result,
       description: description + "#{search_result}です。",
       keywords: keywords
     }
   else
     meta_tags = {
-      site: 'グラビアちゅーぶ',
-      title: 'グラビアちゅーぶ',
+      site: site_name,
+      title: site_name,
       description: description,
       keywords: keywords,
       og: {
