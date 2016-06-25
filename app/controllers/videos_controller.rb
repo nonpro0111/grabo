@@ -7,18 +7,9 @@ class VideosController < ApplicationController
   def show
     @video = Video.find(params[:id])
     @video.increment!(:pv)
-    
-    if @video.tagging?
-      tag_name = @video.tags.first.name
-      @display_tag_name = @video.tags.first.name
-      random_videos = Video.order("RAND()").limit(2)
-      same_tag_videos = Video.tagged_with(tag_name).limit(3)
-      @relation_videos = same_tag_videos + random_videos
-    else
-      @relation_videos = Video.order("RAND()").limit(5)
-    end
+    @relation_videos = @video.relations
 
-    tag_name ||= ActsAsTaggableOn::Tag.most_used(5).sample.name
+    tag_name = @video.tagging? ? @video.tags.first.name : ActsAsTaggableOn::Tag.most_used(20).sample.name
     set_dmm_affiliate(tag_name)
   end
 

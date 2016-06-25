@@ -73,4 +73,16 @@ class Video < ActiveRecord::Base
   def tagging?
     tag_list.present?
   end
+
+  # 関連動画一覧
+  # 今は同じタグ３件、ランダム2件
+  def relations
+    if tagging?
+      random_videos = Video.order("RAND()").limit(2)
+      same_tag_videos = Video.tagged_with(tags.first.name).limit(3)
+      same_tag_videos + random_videos
+    else
+      Video.order("RAND()").limit(5)
+    end
+  end
 end
