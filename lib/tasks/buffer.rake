@@ -7,7 +7,7 @@ namespace :buffer do
     tag = ActsAsTaggableOn::Tag.most_used(100).sample
     video = Video.tagged_with(tag.name).sample
     text = <<-"EOS"
-      #{video.title}。めちゃカワイイ#{tag.name}ちゃん！！#グラビア動画##{tag.name}
+      #{video.title}。めちゃカワイイ#{tag.name}ちゃん！！ #グラビア動画 ##{tag.name}
       #{Global.settings.site.url}/videos/#{video.id}
     EOS
 
