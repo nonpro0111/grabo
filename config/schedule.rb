@@ -31,3 +31,7 @@ end
 every 1.days do
   rake "sitemap:refresh"
 end
+
+every '30 0-23/3 *  *  *' do
+  rake "buffer:create"
+end
