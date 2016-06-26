@@ -33,5 +33,9 @@ every 1.days do
 end
 
 every '30 0-23/3 *  *  *' do
-  rake "buffer:create"
+  rake "buffer:create_video"
+end
+
+every '30 0-23/4 *  *  *' do
+  rake "buffer:create_dmm_ad"
 end

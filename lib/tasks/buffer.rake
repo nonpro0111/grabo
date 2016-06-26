@@ -1,6 +1,6 @@
 namespace :buffer do
   desc "bufferに動画を配信"
-  task :create => :environment do
+  task :create_video => :environment do
     client = Buffer::Client.new(ENV['BUFFER_ACCESS_TOKEN'])
     profile_ids = ENV['BUFFER_PROFILE_ID']
 
@@ -12,6 +12,26 @@ namespace :buffer do
     EOS
 
     response = client.create_update(body: { text: text, profile_ids: profile_ids, now: true })
+
+    unless response["success"]
+      Rails.logger.error(response)
+    end
+  end
+
+  desc "bufferにdmm広告追加"
+  task :create_dmm_ad => :environment do
+    buffer_client = Buffer::Client.new(ENV['BUFFER_ACCESS_TOKEN'])
+    profile_ids = ENV['BUFFER_PROFILE_ID']
+    dmm_client = DMM.new(api_id: ENV['DMM_API_ID'], affiliate_id: ENV['DMM_AFI_ID'])
+
+    ad = dmm_client.product(site: 'DMM.com', service: 'digital', floor: 'idol',
+                            sort: 'rank', hits: 100).result[:items].sample
+
+    idol = ad[:iteminfo][:actor].first[:name]
+    media = { photo: ad[:imageURL][:large], link: ad[:affiliateURL] }
+    text = "#{ad[:title]}、見なきゃソン！ #アイドル ##{idol} #{ad[:affiliateURL]}"
+
+    response = buffer_client.create_update(body:{ text: text, profile_ids: profile_ids, media: media, now: true })
 
     unless response["success"]
       Rails.logger.error(response)
