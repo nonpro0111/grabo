@@ -5,62 +5,29 @@ class Video < ActiveRecord::Base
   scope :popular, -> { order(pv: :desc).limit(10) }
   scope :within_two_month, -> { where("created_at > ?", 2.month.ago) }
 
-  class << self
-    def youtube_new(feed, entry)
-      title = entry.title.chars.select{|c| c.bytesize < 4 }.join('')
-      description = entry.summary
-      description = description.chars.select{|c| c.bytesize < 4 }.join('') if description
+ # class << self
+ #   def niconico_new(feed, entry)
+ #     title = entry.title.chars.select{|c| c.bytesize < 4 }.join('')
+ #     html_content = Nokogiri::HTML(entry.summary)
+ #     description = html_content.css('body').css('.nico-description').text
 
-      Video.new(
-        title: title,
-        thumbnail: entry.media_thumbnail_url,
-        original_site: 'youtube',
-        embed_code: entry.links.first.match(/watch\?v=(\w+)/)[1],
-        published_at: entry.published,
-        channel: feed.title,
-        url: entry.links.first,
-        description: description
-      )
-    end
-
-    def fc2_new(feed, entry)
-      title = entry.title.chars.select{|c| c.bytesize < 5 }.join('')
-      html_content = Nokogiri::HTML(entry.summary)
-      description = html_content.css('body').first.text
-
-      Video.new(
-        title: title,
-        thumbnail: html_content.css('img').first.attributes["src"].value,
-        original_site: 'fc2',
-        embed_code: entry.url.match(/kobj_up_id=(\w+)/)[1],
-        published_at: entry.published,
-        channel: feed.title,
-        url: entry.url,
-        description: description
-      )
-    end
-
-    def niconico_new(feed, entry)
-      title = entry.title.chars.select{|c| c.bytesize < 4 }.join('')
-      html_content = Nokogiri::HTML(entry.summary)
-      description = html_content.css('body').css('.nico-description').text
-
-      Video.new(
-        title: title,
-        thumbnail: html_content.css('img').first.attributes["src"].value,
-        original_site: 'niconico',
-        embed_code: entry.url.match(/watch\/(\w+)/)[1],
-        published_at: entry.published,
-        channel: feed.title,
-        url: entry.url,
-        description: description
-      )
-    end
-  end
+ #     Video.new(
+ #       title: title,
+ #       thumbnail: html_content.css('img').first.attributes["src"].value,
+ #       original_site: 'niconico',
+ #       embed_code: entry.url.match(/watch\/(\w+)/)[1],
+ #       published_at: entry.published,
+ #       channel: feed.title,
+ #       url: entry.url,
+ #       description: description
+ #     )
+ #   end
+ # end
 
   def set_tag
+    strip_title = title.gsub(/(\s|　)+/, '')
+
     Global.idols.list.each do |idol|
-      strip_title = title.gsub(/(\s|　)+/, '')
       tag_list.add(idol) if strip_title.index(idol)
     end
   end

@@ -20,8 +20,7 @@ set :output, "/home/sqale/current/log/cron.log"
 # Learn more: http://github.com/javan/whenever
 
 every 6.hours do
-  rake "rss:from_youtube"
-  rake "rss:from_fc2"
+  rake "rss:create_video"
 end
 
 every 1.hours do
