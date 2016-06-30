@@ -36,5 +36,5 @@ every '30 0-23/3 *  *  *' do
 end
 
 every '30 0-23/4 *  *  *' do
-  rake "buffer:create_dmm_ad"
+  rake "buffer:create_dmm_adult_ad"
 end

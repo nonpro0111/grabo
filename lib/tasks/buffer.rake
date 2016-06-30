@@ -29,7 +29,27 @@ namespace :buffer do
 
     idol = ad[:iteminfo][:actor].first[:name]
     media = { photo: ad[:imageURL][:large], link: ad[:affiliateURL] }
-    text = "#{ad[:title]}、見なきゃソン！ #アイドル ##{idol} #{ad[:affiliateURL]}"
+    text = "#{ad[:title]}、ギリギリショット！ #グラビアアイドル ##{idol} #{ad[:affiliateURL]}"
+
+    response = buffer_client.create_update(body:{ text: text, profile_ids: profile_ids, media: media, now: true })
+
+    unless response["success"]
+      Rails.logger.error(response)
+    end
+  end
+
+  # お試し、不要なら消す
+  desc "bufferにdmmアダルト広告追加"
+  task :create_dmm_adult_ad => :environment do
+    buffer_client = Buffer::Client.new(ENV['BUFFER_ACCESS_TOKEN'])
+    profile_ids = ENV['BUFFER_PROFILE_ID']
+    dmm_client = DMM.new(api_id: ENV['DMM_API_ID'], affiliate_id: ENV['DMM_AFI_ID'])
+
+    ad = dmm_client.product(site: 'DMM.R18', service: 'digital', keyword: 'グラビア',
+                            sort: 'date', hits: 100).result[:items].sample
+    actress = ad[:iteminfo][:actress].first[:name]
+    media = { photo: ad[:imageURL][:large], link: ad[:affiliateURLsp] }
+    text = " 【グラドルのAV】#{ad[:title]}、抜けすぎちゃうんだよな〜！#グラビアアイドル #AV ##{actress} #{ad[:affiliateURLsp]}"
 
     response = buffer_client.create_update(body:{ text: text, profile_ids: profile_ids, media: media, now: true })
 
