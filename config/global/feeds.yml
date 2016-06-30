@@ -29,6 +29,8 @@ default:
     - https://www.youtube.com/feeds/videos.xml?channel_id=UCw855t6RuS_tc2m2qitfbwQ # IIIIIXCLIPS
     - https://www.youtube.com/feeds/videos.xml?channel_id=UCQE4xNVlAI2FSnnqvNOuV1g # Miracle24
     - https://www.youtube.com/feeds/videos.xml?channel_id=UCsY1SO7rS175xnZjQMcOZeA # gravure02
+    - https://www.youtube.com/feeds/videos.xml?channel_id=UCIen5wjL7sBAckv_06rqWGA # Japan Cute Idols
+    - https://www.youtube.com/feeds/videos.xml?channel_id=UCNn6HrjlTCvQuJCxIMCz54g # tetsuro24
   niconico:
     - http://www.nicovideo.jp/tag/#{tag名}?sort=f&rss=2.0
   fc2:
@@ -38,3 +40,5 @@ default:
     - http://video.fc2.com/rss/member/mb_feed.php?mbid=90574862 # イーネットフロンティア
     - http://video.fc2.com/rss/member/mb_feed.php?mbid=45142242 # U18.tv
     - http://video.fc2.com/rss/member/mb_feed.php?mbid=52350916 # 株式会社アイロゴス
+    - http://video.fc2.com/rss/member/mb_feed.php?mbid=62749320 # アイマックスch
+    - http://video.fc2.com/rss/member/mb_feed.php?mbid=34602261 # きゅうすた／FP姫
