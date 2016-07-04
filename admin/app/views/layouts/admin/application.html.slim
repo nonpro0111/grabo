@@ -18,8 +18,9 @@ html
                 = link_to "Sign Out", destroy_user_session_path, method: :delete
               - else
                 = link_to "Sign In", new_user_session_path
-      .row
-        #sidebar.col.l3
-        .col.l9
+      #content.row
+        #sidebar.col.l3.offset-l1
+          = render partial: "admin/shared/sidebar"
+        .col.l8
         #main.col.l12
           = yield
