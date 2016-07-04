@@ -19,6 +19,8 @@ Gem::Specification.new do |s|
 
   s.add_dependency "rails", "~> 4.2.5.2"
   s.add_dependency "devise", "4.2.0"
+  s.add_dependency "materialize-sass"
+  s.add_dependency "jquery-rails"
 
   s.add_development_dependency "sqlite3"
 end
