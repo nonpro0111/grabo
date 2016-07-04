@@ -14,7 +14,10 @@ html
             | 【Admin】グラビアちゅーぶ
           ul#nav-mobile.right.hide-on-med-and-down
             li
-              = link_to "Sign Out", destroy_user_session_path, method: :delete
+              - if user_signed_in?
+                = link_to "Sign Out", destroy_user_session_path, method: :delete
+              - else
+                = link_to "Sign In", new_user_session_path
       .row
         #sidebar.col.l3
         .col.l9
