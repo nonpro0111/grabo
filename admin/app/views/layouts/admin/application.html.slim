@@ -19,8 +19,7 @@ html
               - else
                 = link_to "Sign In", new_user_session_path
       #content.row
-        #sidebar.col.l3.offset-l1
+        #sidebar.col.l3
           = render partial: "admin/shared/sidebar"
-        .col.l8
-        #main.col.l12
+        #main.col.l9
           = yield

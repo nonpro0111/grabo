@@ -28,7 +28,7 @@ namespace :rss do
               url: entry.video_url,
               description: entry.video_description
             )
-            video.set_tag
+            video.set_tag_by_title
             video.save!
           rescue
           end

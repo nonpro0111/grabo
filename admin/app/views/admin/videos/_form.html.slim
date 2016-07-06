@@ -1,0 +1,12 @@
+.video-edit
+  h5 編集
+  = form_for(@video, html: { class: "col l11" }) do |f|
+    .row
+      .input-field.col.l10
+        = f.text_field :title
+        = f.label :title
+    .row
+      .input-field.col.l10
+        = f.text_area :description, class: "materialize-textarea"
+        = f.label :description
+    = f.submit "更新", class: "btn waves-effect waves-light"
