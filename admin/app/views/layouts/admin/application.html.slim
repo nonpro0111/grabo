@@ -19,7 +19,8 @@ html
               - else
                 = link_to "Sign In", new_user_session_path
       #content.row
-        #sidebar.col.l3
-          = render partial: "admin/shared/sidebar"
+        - if user_signed_in?
+          #sidebar.col.l3
+            = render partial: "admin/shared/sidebar"
         #main.col.l9
           = yield
