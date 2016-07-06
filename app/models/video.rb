@@ -1,6 +1,7 @@
 require 'net/http'
 class Video < ActiveRecord::Base
   acts_as_taggable            # acts_as_taggable_on :tags のエイリアス
+  attr_accessor :tag_names
 
   scope :popular, -> { order(pv: :desc).limit(10) }
   scope :within_two_month, -> { where("created_at > ?", 2.month.ago) }
@@ -32,8 +33,8 @@ class Video < ActiveRecord::Base
     end
   end
 
-  def set_tag(tag_name)
-    tag_list.add(tag_name)
+  def set_tag(tag_names)
+    tag_names.split(",").each { |name| tag_list.add(name) }
   end
 
   def banned?
@@ -50,7 +51,7 @@ class Video < ActiveRecord::Base
   def relations
     if tagging?
       random_videos = Video.order("RAND()").limit(2)
-      same_tag_videos = Video.tagged_with(tags.first.name).limit(3)
+      same_tag_videos = Video.tagged_with(tag_list).limit(3)
       same_tag_videos + random_videos
     else
       Video.order("RAND()").limit(5)

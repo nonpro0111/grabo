@@ -9,7 +9,7 @@ class VideosController < ApplicationController
     @video.increment!(:pv)
     @relation_videos = @video.relations
 
-    tag_name = @video.tagging? ? @video.tags.first.name : ActsAsTaggableOn::Tag.most_used(20).sample.name
+    tag_name = @video.tagging? ? @video.tag_list.first : ActsAsTaggableOn::Tag.most_used(20).sample.name
     set_dmm_affiliate(tag_name)
   end
 

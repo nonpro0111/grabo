@@ -16,8 +16,8 @@ module Admin
     end
 
     def update
-      if video_params[:tags].present?
-        @video.set_tag
+      if video_params[:tag_names].present?
+        @video.set_tag(video_params[:tag_names])
       end
 
       if @video.update(video_params)
@@ -39,7 +39,7 @@ module Admin
       def video_params
         params.require(:video)
           .permit(:title, :thumbnail, :original_site, :embed_code,
-                  :published_at, :channel, :url, :description, :pv)
+                  :published_at, :channel, :url, :description, :pv, :tag_names)
       end
   end
 end
