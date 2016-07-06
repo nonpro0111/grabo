@@ -24,12 +24,16 @@ class Video < ActiveRecord::Base
  #   end
  # end
 
-  def set_tag
+  def set_tag_by_title
     strip_title = title.gsub(/(\s|　)+/, '')
 
     Global.idols.list.each do |idol|
       tag_list.add(idol) if strip_title.index(idol)
     end
+  end
+
+  def set_tag(tag_name)
+    tag_list.add(tag_name)
   end
 
   def banned?

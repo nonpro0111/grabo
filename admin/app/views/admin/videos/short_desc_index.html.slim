@@ -1,0 +1,17 @@
+h3
+  | 説明文が短い動画一覧
+table.bordered
+  tr
+    th id
+    th title
+    th tag
+    th 
+  - @videos.each do |video|
+    tr
+      td = video.id
+      td = video.title
+      td = video.tag_list
+      td = link_to "編集", edit_video_path(video)
+
+= paginate(@videos)
+

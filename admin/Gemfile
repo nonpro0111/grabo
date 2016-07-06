@@ -1,0 +1,8 @@
+source 'https://rubygems.org'
+
+gemspec
+
+gem 'devise', '4.2.0'
+gem 'materialize-sass'
+gem "jquery-rails"
+

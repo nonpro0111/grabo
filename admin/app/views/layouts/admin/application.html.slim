@@ -1,0 +1,25 @@
+doctype html
+html
+  head
+    title
+      | Admin
+    = stylesheet_link_tag    "admin/application", media: "all"
+    = javascript_include_tag "admin/application"
+    = csrf_meta_tags
+  body
+    #container
+      nav.blue
+        .nav-wrapper
+          = link_to root_path, class: 'brand-logo' do
+            | 【Admin】グラビアちゅーぶ
+          ul#nav-mobile.right.hide-on-med-and-down
+            li
+              - if user_signed_in?
+                = link_to "Sign Out", destroy_user_session_path, method: :delete
+              - else
+                = link_to "Sign In", new_user_session_path
+      #content.row
+        #sidebar.col.l3
+          = render partial: "admin/shared/sidebar"
+        #main.col.l9
+          = yield
