@@ -28,6 +28,9 @@ module Admin
     end
 
     def destroy
+      @video.tag_list.clear
+      @video.destroy
+      redirect_to short_desc_index_videos_path
     end
 
     private
