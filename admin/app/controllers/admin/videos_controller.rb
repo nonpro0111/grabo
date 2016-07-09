@@ -9,7 +9,7 @@ module Admin
     end
 
     def short_desc_index
-      @videos = Video.where("description < ?", 30).page(params[:page]).per(30)
+      @videos = Video.where("CHAR_LENGTH(description) < ?", 50).page(params[:page]).per(30)
     end
 
     def edit
