@@ -5,11 +5,27 @@ module Admin
     before_action :set_video, only: [:edit, :update, :destroy]
 
     def index
-      @videos_num = Video.all.size
+      @videos = Video.all.page(params[:page]).per(30)
     end
 
     def short_desc_index
       @videos = Video.where("CHAR_LENGTH(description) < ?", 50).page(params[:page]).per(30)
+    end
+
+    def new
+      @video = Video.new
+    end
+
+    def create
+      @video = Video.new(video_params)
+      @video.set_tag(video_params[:tag_names])
+      @video.published_at = Time.current
+
+      if @video.save
+        redirect_to edit_video_path(@video)
+      else
+        redirect_to new_video_path
+      end
     end
 
     def edit

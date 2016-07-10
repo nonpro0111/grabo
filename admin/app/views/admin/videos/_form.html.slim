@@ -1,5 +1,4 @@
-.video-edit
-  h5 編集
+.video-form
   = form_for(@video, html: { class: "col l11" }) do |f|
     .row
       .input-field.col.l10
@@ -13,6 +12,22 @@
       .input-field.col.l10
         = f.text_field :thumbnail
         = f.label :thumbnail
+    .row
+      .input-field.col.l10
+        = f.text_field :url
+        = f.label :url
+    .row
+      .input-field.col.l10
+        = f.text_field :embed_code
+        = f.label :embed_code
+    .row
+      .input-field.col.l10
+        = f.text_field :channel
+        = f.label :channel
+    .row
+      .input-field.col.l10
+        = f.text_field :original_site
+        = f.label :original_site
     .row
       .input-field.col.l10
         = f.text_field :tag_names
