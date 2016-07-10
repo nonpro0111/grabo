@@ -16,7 +16,7 @@ class VideosController < ApplicationController
   def search
     tag_name = params[:search]
     video_count = Video.tagged_with(tag_name).size
-    @videos = Video.tagged_with(tag_name).page(params[:page])
+    @videos = Video.tagged_with(tag_name).order(id: :desc).page(params[:page])
     @result_heading = "#{tag_name}  #{video_count}件"
   end
 
