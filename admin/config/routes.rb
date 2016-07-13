@@ -4,9 +4,5 @@ Admin::Engine.routes.draw do
 
   root "home#index"
 
-  resources :videos do
-    collection do
-      get "short_desc_index"
-    end
-  end
+  resources :videos
 end

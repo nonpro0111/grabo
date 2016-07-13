@@ -5,11 +5,7 @@ module Admin
     before_action :set_video, only: [:edit, :update, :destroy]
 
     def index
-      @videos = Video.all.page(params[:page]).per(30)
-    end
-
-    def short_desc_index
-      @videos = Video.where("CHAR_LENGTH(description) < ?", 50).page(params[:page]).per(30)
+      @videos = Video.all.order(created_at: :desc).page(params[:page]).per(30)
     end
 
     def new
@@ -37,7 +33,7 @@ module Admin
       end
 
       if @video.update(video_params)
-        redirect_to short_desc_index_videos_path
+        redirect_to videos_path
       else
         render :edit
       end
