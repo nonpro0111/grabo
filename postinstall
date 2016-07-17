@@ -9,4 +9,4 @@ elsif File.symlink?(path)
   FileUtils.rm(path)
 end
 
-FileUtils.symlink("#{ENV['HOME']}/public/uploads", path)
+FileUtils.symlink("#{ENV['HOME']}/uploads", path)
