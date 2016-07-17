@@ -33,6 +33,9 @@ html
             = submit_tag '検索', class: 'btn search-submit'
         #main.col.s12.m12.l8
           = yield
+          hr
+          .dmm-ranking
+            = render partial: "shared/lower_ad"
         #sidebar.col.s12.m12.l4
           = render partial: 'shared/sidebar'
 
