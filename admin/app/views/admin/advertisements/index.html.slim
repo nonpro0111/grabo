@@ -1,0 +1,36 @@
+p#notice
+  = notice
+.row
+  .col.l12
+    h1
+      | Listing Advertisements
+    table
+      thead
+        tr
+          th id
+          th image
+          th url
+          th position
+          th order_no
+          th
+      tbody
+        - @advertisements.each do |ad|
+          tr
+            td
+              = ad.id
+            td
+              = image_tag(ad.image_url, width: 150)
+            td
+              = ad.url
+            td
+              = Advertisement::POSITON::NAMES[ad.position]
+            td
+              = ad.order_no
+            td
+              = link_to 'Show', ad
+              br
+              = link_to 'Edit', edit_advertisement_path(ad)
+              br
+              = link_to 'Destroy', ad, method: :delete, data: { confirm: 'Are you sure?' }
+br
+= link_to 'New Advertisement', new_advertisement_path
