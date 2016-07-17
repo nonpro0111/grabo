@@ -6,13 +6,13 @@ table.ad-detail
     td = @advertisement.id
   tr
     td 画像
-    td = image_tag(@advertisement.image_url)
+    td = image_tag(@advertisement.image_url, width: 200)
   tr
     td url
     td = @advertisement.url
   tr
     td 位置
-    td = @advertisement.position
+    td = Advertisement::POSITON::NAMES[@advertisement.position]
   tr
     td 並び順
     td = @advertisement.order_no
