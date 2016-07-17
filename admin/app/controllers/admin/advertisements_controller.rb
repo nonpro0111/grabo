@@ -56,7 +56,7 @@ module Admin
 
       # Only allow a trusted parameter "white list" through.
       def advertisement_params
-        params[:advertisement]
+        params.require(:advertisement).permit(:title, :image, :url, :position, :order_no)
       end
   end
 end

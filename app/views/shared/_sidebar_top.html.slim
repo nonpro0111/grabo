@@ -1,12 +1,7 @@
 h3.h5 PICKUP動画!!
 .dmm-ad
-  div style="margin: 20px 0;"
-    a href="http://www.dmm.com/digital/idol/-/detail/=/cid=5125lcdv40714/nonpro0111-002" target="_blank"
-      = image_tag("pickup20160623.jpg", alt: "アイドルワン 恋して、りーりー 橋本梨菜", width: 300)
-    a href="http://www.dmm.com/digital/idol/-/detail/=/cid=5125lcdv40714/nonpro0111-002" target="_blank"
-      | アイドルワン 恋して、りーりー 橋本梨菜
-  div style="margin: 20px 0;"
-    a href="http://www.dmm.com/digital/idol/-/detail/=/cid=5469buno00025/nonpro0111-002" target="_blank"
-      = image_tag("pickup20160612-02.jpg", alt: "りおの疼いちゃう 兎月りお", width: 300)
-    a href="http://www.dmm.com/digital/idol/-/detail/=/cid=5469buno00025/nonpro0111-002" target="_blank"
-      | りおの疼いちゃう 兎月りお
+  - @advertisements.each do |ad|
+    div style="margin: 20px 0;"
+      = link_to ad.url, target: "_blank" do
+        = image_tag(ad.image_url, alt: ad.title, width: 300)
+      = link_to ad.title, ad.url, target: "_blank"

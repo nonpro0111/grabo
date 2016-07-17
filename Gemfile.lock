@@ -253,6 +253,7 @@ DEPENDENCIES
   admin!
   buffer!
   byebug
+  carrierwave
   coffee-rails (~> 4.1.0)
   feedjira
   global
@@ -265,6 +266,7 @@ DEPENDENCIES
   pry-byebug
   pry-rails
   rails (= 4.2.5.2)
+  rmagick
   ruby-dmm
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
