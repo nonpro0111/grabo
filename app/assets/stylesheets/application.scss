@@ -40,7 +40,7 @@
 }
 
 @media screen and (min-width: 993px) {
-  .card {
+  .video-card {
     height: 185px;
 
     .card-content.small-content {
@@ -51,7 +51,7 @@
 }
 
 @media screen and (min-width: 601px) and (max-width: 992px) {
-  .card {
+  .video-card {
     height: 240px;
     .card-content.small-content {
       padding: 8px;
@@ -61,7 +61,7 @@
 }
 
 @media screen and (max-width: 600px) {
-  .card {
+  .video-card {
     height: 150px;
     .card-content.small-content {
       padding: 8px;
@@ -84,4 +84,11 @@
 ul.pagination {
   clear: both;
   text-align: center;
+}
+
+#lower-ad {
+  .card-action {
+    padding: 5px;
+    height: 60px;
+  }
 }
