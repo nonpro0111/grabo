@@ -25,6 +25,10 @@ ruby:
         | ※動画が表示されない場合は、再読み込みしてください。
     br
     = simple_format(@video.description)
+    br
+    ul
+    - tags.each do |tag|
+      li = link_to "#{tag}の動画をもっと見る", search_videos_path(search: tag)
     hr
     - if @affiliates
       = render partial: "dmm_related_items", locals: { affiliates: @affiliates }
