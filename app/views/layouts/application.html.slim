@@ -26,11 +26,6 @@ html
       .row
         h2.h5.red-text.text-lighten-2
           | セクシーグラビア動画見放題のグラビアちゅーぶ!!
-        .col.s12.m8.l4.offset-m2.offset-l4
-          = form_tag(search_videos_path, method: "get", class: "search-form") do
-            .input-field
-              = text_field_tag 'search', '', :required => true, placeholder: "タグ検索"
-            = submit_tag '検索', class: 'btn search-submit'
         #main.col.s12.m12.l8
           = yield
           hr

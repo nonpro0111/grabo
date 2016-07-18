@@ -28,7 +28,7 @@ ruby:
     br
     ul
     - tags.each do |tag|
-      li = link_to "#{tag}の動画をもっと見る", search_videos_path(search: tag)
+      p.h6.right-align = link_to "#{tag}の動画をもっと見る", search_videos_path(search: tag)
     hr
     - if @affiliates
       = render partial: "dmm_related_items", locals: { affiliates: @affiliates }

@@ -2,7 +2,7 @@
   h2.h4
     | アイドル一覧
   ul
-    - @tags.each do |tag|
+    - @idols.each do |idol|
       li
-        = link_to tag.name, search_videos_path(search: tag.name)
+        = link_to idol, search_videos_path(search: idol)
 
