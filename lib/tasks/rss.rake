@@ -29,6 +29,7 @@ namespace :rss do
               description: entry.video_description
             )
             video.set_tag_by_title
+            video.add_one_word
             video.save!
           rescue
           end

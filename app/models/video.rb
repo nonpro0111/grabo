@@ -57,4 +57,12 @@ class Video < ActiveRecord::Base
       Video.order("RAND()").limit(5)
     end
   end
+
+  def add_one_word
+    return unless tagging?
+    idol = tag_list.first
+    one_word = Description.one_word(idol)
+    self.description = "" if self.description.nil?
+    self.description += "\n\n" + one_word
+  end
 end
