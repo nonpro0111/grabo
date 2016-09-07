@@ -3,11 +3,10 @@ meta content='NOYDIR' name='ROBOTS'
 meta content='NOODP' name='ROBOTS'
 
 ruby:
-  description = '人気グラビアアイドルのおすすめ動画をまとめているグラビア動画BOX。かわいい、エロい、美人なアイドルや巨乳アイドル、微乳アイドルなど幅広く掲載しています。グラビアアイドル動画まとめサイトです。'
-  keywords = 'グラビア,動画,イメージビデオ,エロい,かわいい,美女,美少女,巨乳,微乳,ビキニ,水着,グラビアアイドル'
-  site_name = 'グラビア動画BOX　〜セクシーグラビア動画見放題〜'
+  keywords = 'グラビアBOX,グラビア,動画,イメージビデオ,エロい,かわいい,美女,美少女,巨乳,微乳,ビキニ,水着,グラビアアイドル'
+  site_name = 'グラビア動画BOX　〜グラビアアイドル動画見放題〜'
   if video
-    keywords = "#{video.tags.first.name}," + keywords if video.tagging?
+    description = meta_tag_description(video.tags.first.name) if video.tagging?
     meta_tags = {
       site: site_name,
       title: video.title,
@@ -34,14 +33,14 @@ ruby:
     meta_tags = {
       site: site_name,
       title: search_result,
-      description: description + "#{search_result}です。",
+      description: meta_tag_description + "#{search_result}です。",
       keywords: keywords
     }
   else
     meta_tags = {
       site: site_name,
-      title: site_name,
-      description: description,
+      title: meta_tag_title,
+      description: meta_tag_description,
       keywords: keywords,
       og: {
         title: :title,
