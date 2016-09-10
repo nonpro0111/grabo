@@ -20,13 +20,13 @@ module ApplicationHelper
   def meta_tag_description(word = nil)
     if word
       <<-"EOS"
-        人気グラビアアイドルのおすすめ動画をまとめているグラビア動画BOX。
+        人気グラビアアイドルのおすすめ動画をまとめているグラビアBOX動画。
         #{word}動画たくさん取り揃えています。
       EOS
     else
       words = Global.meta_data.words.sample(5)
       <<-"EOS"
-        人気グラビアアイドルのおすすめ動画をまとめているグラビア動画BOX。
+        人気グラビアアイドルのおすすめ動画をまとめているグラビアBOX動画。
         #{words[0]}、#{words[1]}、#{words[2]}アイドルや#{words[3]}、#{words[4]}
         アイドルなど幅広く掲載しています。
       EOS
