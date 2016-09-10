@@ -1,5 +1,7 @@
 module Admin
   class SessionsController < ::Devise::SessionsController
+    skip_before_filter :login_check
+
     def after_sign_in_path_for(resource)
       root_path
     end
