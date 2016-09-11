@@ -6,11 +6,13 @@ ruby:
   keywords = 'グラビアBOX,グラビア,動画,イメージビデオ,エロい,かわいい,美女,美少女,巨乳,微乳,ビキニ,水着,グラビアアイドル'
   site_name = 'グラビアBOX動画　〜グラビアアイドル動画見放題〜'
   if video
-    description = meta_tag_description(video.tags.first.name) if video.tagging?
+    description = "#{video.title}。#{video.description}"
+    description = meta_tag_description(video.tags.first.name) + description if video.tagging?
+
     meta_tags = {
       site: site_name,
       title: video.title,
-      description: description + "#{video.title}。#{video.description}",
+      description: description,
       keywords: keywords,
       og: {
         title: :title,
