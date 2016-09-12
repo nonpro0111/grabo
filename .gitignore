@@ -13,3 +13,5 @@
 /tmp
 #config/database.yml
 .envrc
+config/database.yml
+config/secrets.yml
