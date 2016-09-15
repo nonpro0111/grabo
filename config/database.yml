@@ -10,7 +10,7 @@ development:
 production:
   adapter: mysql2
   encoding: utf8
-  username: sqale_3109f2709b
-  password: 422927da41273c09731900ef4f0ee92a41d283551db3705e
-  database: sqale_3109f2709b
-  host: mysql001.sqale.jp
+  username: root
+  password: idoldaisuki
+  database: gravure_tube_production
+  host: localhost
