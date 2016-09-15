@@ -9,11 +9,9 @@ set :pty, true
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 # Default deploy_to directory is /var/www/my_app_name
-set :deploy_to, '/var/www/gravure-tube'
-
 # Default value for :scm is :git
 set :scm, :git
-set :rbenv_path, "/home/gravure/.rbenv/"
+set :rbenv_path, "/home/gravure/.rbenv"
 set :rbenv_type, :system
 set :rbenv_ruby, '2.3.1'
 set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} #{fetch(:rbenv_path)}/bin/rbenv exec"

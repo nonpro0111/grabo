@@ -11,3 +11,7 @@ set :ssh_options, {
     forward_agent: true,
     auth_methods: %w(publickey)
 }
+
+set :deploy_to, '/var/www/gravure-tube'
+set :current_path, "#{deploy_to}/current"
+set :releases_path, "#{deploy_to}/releases"
