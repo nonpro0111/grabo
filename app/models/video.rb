@@ -1,5 +1,6 @@
 require 'net/http'
 class Video < ActiveRecord::Base
+  include Tag
   acts_as_taggable            # acts_as_taggable_on :tags のエイリアス
   attr_accessor :tag_names
 
@@ -25,11 +26,21 @@ class Video < ActiveRecord::Base
  #   end
  # end
 
+  # mecabの人名精度がいまいちなので、config優先
   def set_tag_by_title
     strip_title = title.gsub(/(\s|　)+/, '')
+    idol_name = get_tag_name(strip_title)
 
+    is_matched = false
     Global.idols.list.each do |idol|
-      tag_list.add(idol) if strip_title.index(idol)
+      if strip_title.index(idol)
+        tag_list.add(idol)
+        is_matched = true
+      end
+    end
+
+    if idol_name.present? && !is_matched
+      tag_list.add(idol_name)
     end
   end
 
