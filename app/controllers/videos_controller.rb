@@ -29,7 +29,10 @@ class VideosController < ApplicationController
 
   private
     def set_dmm_client
-      @client = DMM.new(:api_id => ENV['DMM_API_ID'], :affiliate_id => ENV['DMM_AFI_ID'])
+      @client = DMM.new(
+        api_id: Rails.application.secrets.dmm_api_id, 
+        affiliate_id: Rails.application.secrets.dmm_afi_id
+      )
     end
 
     def set_dmm_affiliate(keyword)
