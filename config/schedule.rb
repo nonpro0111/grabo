@@ -5,7 +5,7 @@
 
 # Example:
 #
-set :output, "/home/sqale/current/log/cron.log"
+set :output, "#{Rails.root}/log/cron.log"
 set :environment, :production
 #
 # every 2.hours do
