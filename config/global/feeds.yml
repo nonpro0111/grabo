@@ -27,6 +27,9 @@ default:
     - https://www.youtube.com/feeds/videos.xml?channel_id=UCv9nvfVm-1OLQp0eO2DoQXg # AKI TSUCHI
     - https://www.youtube.com/feeds/videos.xml?channel_id=UCXkNWLBZcFdS8iYVhved-PQ # Kimberly Macon
     - https://www.youtube.com/feeds/videos.xml?channel_id=UC35dgDbbl91CFgYrPS9v8sA # LOVEPOP ４K動画ちゃんねる
+    - https://www.youtube.com/feeds/videos.xml?channel_id=UC-RMfD2nq5cfkcdkwqiVh_g # NEWS IDOL
+    - https://www.youtube.com/feeds/videos.xml?channel_id=UCLeCJphWd7hSD0AR0sdibfw # とある芸能人のワキ動画
+    - https://www.youtube.com/feeds/videos.xml?channel_id=UCQTjcfJnYO725KVVO42oRhA # GirlsTube
   niconico:
     - http://www.nicovideo.jp/tag/#{tag名}?sort=f&rss=2.0
   fc2:
