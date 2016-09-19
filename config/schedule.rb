@@ -5,7 +5,7 @@
 
 # Example:
 #
-set :output, "/var/www/gravure-tube/current/log/cron.log"
+set :output, "/var/www/gravure-tube/shared/log/cron.log"
 set :environment, :production
 #
 # every 2.hours do
@@ -22,10 +22,6 @@ set :environment, :production
 
 every 6.hours do
   rake "rss:create_video"
-end
-
-every 1.hours do
-  rake "monitoring:delete_banned_video"
 end
 
 every 1.days do
