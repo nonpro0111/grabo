@@ -1,12 +1,6 @@
 .col.s12.m12.l10
   .advertisement
     == render "shared/sidebar_google_adsense"
-    h4.h6 PICKUP動画!!
-    - @sidebar_ads.each do |ad|
-      div style="margin: 20px 0;"
-        = link_to ad.url, target: "_blank" do
-          = image_tag(ad.image_url, alt: ad.title, width: 300)
-        = link_to ad.title, ad.url, target: "_blank"
   h3.h6 グラビアBOX動画ランキング
   ul.collection
     - @popular_videos.each do |video|
