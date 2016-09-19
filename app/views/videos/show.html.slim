@@ -37,7 +37,7 @@ ruby:
     ul.collection
       - @relation_videos.each do |video|
         li.collection-item.avatar
-          = image_tag("#{video.thumbnail}", alt: video.title, class: 'responsive-img circle')
+          = image_tag("#{video.thumbnail}", alt: video_alt(video), class: 'responsive-img circle')
           = link_to(video.title, video, class: "collection-link")
           p
             = truncate(video.description, length: 170)

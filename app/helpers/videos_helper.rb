@@ -4,6 +4,10 @@ module VideosHelper
     text.gsub(/\[\w.+\]/,'')
   end
 
+  def video_alt(video)
+    "#{Global.settings.site.name} | #{video.title}"
+  end
+
   def embed_video(video)
     case video.original_site
     when 'youtube'

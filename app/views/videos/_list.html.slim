@@ -3,7 +3,7 @@
     .card.video-card
       .card-image.waves-effect.waves-block.waves-light
         = link_to video do
-          = image_tag("#{video.thumbnail}", alt: video.title, class: 'activator')
+          = image_tag("#{video.thumbnail}", alt: video_alt(video), class: 'activator')
       .card-content.small-content
         = link_to(truncate(clean_text(video.title), length:20), video)
 
