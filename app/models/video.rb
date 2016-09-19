@@ -61,11 +61,11 @@ class Video < ActiveRecord::Base
   # 今は同じタグ３件、ランダム2件
   def relations
     if tagging?
-      random_videos = Video.order("RAND()").limit(2)
+      random_videos = Video.order("RAND()").limit(5)
       same_tag_videos = Video.tagged_with(tag_list).limit(3)
       same_tag_videos + random_videos
     else
-      Video.order("RAND()").limit(5)
+      Video.order("RAND()").limit(8)
     end
   end
 
