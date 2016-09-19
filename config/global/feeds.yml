@@ -30,6 +30,9 @@ default:
     - https://www.youtube.com/feeds/videos.xml?channel_id=UC-RMfD2nq5cfkcdkwqiVh_g # NEWS IDOL
     - https://www.youtube.com/feeds/videos.xml?channel_id=UCLeCJphWd7hSD0AR0sdibfw # とある芸能人のワキ動画
     - https://www.youtube.com/feeds/videos.xml?channel_id=UCQTjcfJnYO725KVVO42oRhA # GirlsTube
+    - https://www.youtube.com/feeds/videos.xml?channel_id=UCvz44P_Jly_WV-2L5OdGI1Q # しんのすけVENUS
+    - https://www.youtube.com/feeds/videos.xml?channel_id=UCfyawFau0aAFOO8TJFzFiJw # さや姉
+    - https://www.youtube.com/feeds/videos.xml?channel_id=UCPiL4QJdqqiyOKDXReKNeTA # 白泉社 ヤングアニマル
   niconico:
     - http://www.nicovideo.jp/tag/#{tag名}?sort=f&rss=2.0
   fc2:
