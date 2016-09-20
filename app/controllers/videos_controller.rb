@@ -5,7 +5,9 @@ class VideosController < ApplicationController
   end
 
   def show
-    @video = Video.find(params[:id])
+    @video = Video.find_by(id: params[:id])
+    redirect_to root_path and return unless @video
+
     @video.increment!(:pv)
     @relation_videos = @video.relations
 
