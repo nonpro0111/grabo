@@ -28,10 +28,6 @@ every 1.days do
   rake "sitemap:refresh"
 end
 
-every '30 0-23/3 *  *  *' do
+every '30 0-23/2 *  *  *' do
   rake "buffer:create_video"
-end
-
-every '30 0-23/4 *  *  *' do
-  rake "buffer:create_dmm_adult_ad"
 end
