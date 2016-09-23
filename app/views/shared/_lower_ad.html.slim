@@ -4,7 +4,7 @@
     .col.s6.m4.l3
       .card
         .card-image.waves-effect.waves-block.waves-light
-          = link_to ad.url, target: "_blank" do
-            = image_tag("#{ad.image}", alt: ad.title, class: 'activator')
+          = link_to ad[:affiliateURL], target: "_blank" do
+            = image_tag(ad[:imageURL][:small], alt: ad[:title], class: 'activator')
         .card-action
-          = link_to(ad.title, ad.url)
+          = link_to(ad[:title], ad[:affiliateURL])
