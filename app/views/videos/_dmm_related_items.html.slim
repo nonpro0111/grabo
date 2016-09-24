@@ -1,6 +1,6 @@
 .rows
   - @affiliates.each do |affiliate|
-    .col.s6.m4.l3
+    .col.s12.m3.l3
       .related-item
         = link_to affiliate[:affiliateURL] do
           = image_tag(affiliate[:imageURL][:small], alt: affiliate[:title])

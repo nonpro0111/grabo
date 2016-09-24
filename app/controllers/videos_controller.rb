@@ -37,11 +37,12 @@ class VideosController < ApplicationController
     end
 
     def set_dmm_affiliate(keyword)
+      num = request_smartphone? ? 4 : 8
       begin
-        @affiliates = idol_dmm_afi(8, "rank", keyword)
-        if @affiliates.size < 8
-          num = 8 - @affiliates.size
-          @affiliates << idol_dmm_afi(num, "date")
+        @affiliates = idol_dmm_afi(num, "rank", keyword)
+        if @affiliates.size < num
+          shortage = num - @affiliates.size
+          @affiliates << idol_dmm_afi(shortage, "date")
           @affiliates.flatten!
         end
       rescue => e
