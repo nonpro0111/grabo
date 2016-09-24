@@ -1,14 +1,15 @@
 module DmmAffiliate
   extend ActiveSupport::Concern
 
-  def global_dmm_afi(num)
+  def idol_dmm_afi(num, sort = "rank", keyword = nil)
     client = set_dmm_client
 
     client.product(
       site: 'DMM.com',
       service: 'digital',
       floor: 'idol',
-      sort: 'rank',
+      keyword: keyword,
+      sort: sort,
       hits: num
     ).result[:items]
   end

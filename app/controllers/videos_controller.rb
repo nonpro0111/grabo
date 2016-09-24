@@ -11,7 +11,7 @@ class VideosController < ApplicationController
     @video.increment!(:pv)
     @relation_videos = @video.relations
 
-    tag_name = @video.tagging? ? @video.tag_list.first : ActsAsTaggableOn::Tag.most_used(20).sample.name
+    tag_name = @video.tagging? ? @video.tag_list.first : ""
     set_dmm_affiliate(tag_name)
   end
 
@@ -38,11 +38,10 @@ class VideosController < ApplicationController
 
     def set_dmm_affiliate(keyword)
       begin
-        set_dmm_client
-        @affiliates = @client.product(:site => 'DMM.com', :keyword => keyword.force_encoding("utf-8"), :service => 'digital', :floor => 'idol', :sort => 'rank', :hits => 3).result[:items]
-        if @affiliates.size < 3
-          num = 3 - @affiliates.size
-          @affiliates << @client.product(:site => 'DMM.com', :service => 'digital', :floor => 'idol', :sort => 'rank', :hits => num).result[:items]
+        @affiliates = idol_dmm_afi(8, "rank", keyword)
+        if @affiliates.size < 8
+          num = 8 - @affiliates.size
+          @affiliates << idol_dmm_afi(num, "date")
           @affiliates.flatten!
         end
       rescue => e

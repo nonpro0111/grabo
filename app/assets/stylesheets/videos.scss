@@ -2,12 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-@media screen and (max-width: 549px){
-  table.dmm-affiliate tr td:last-child {
-    display: none;
-  }
-}
-
 #video-detail {
   h2 {
     margin-bottom: 0.5rem;
@@ -22,9 +16,16 @@
     margin-bottom: 10px;
   }
 
-  td {
+  .related-item {
+    border: 1px solid #dfdfdf;
+    margin: 0 auto;
     text-align: center;
+    img {
+      height: 200px;
+      width: 147px;
+    }
   }
+
   .embedded-video {
     padding-bottom: 30px;
   }

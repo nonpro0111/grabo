@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
   end
 
   def lower_ad
-    @lower_ads = global_dmm_afi(12)
+    @lower_ads = idol_dmm_afi(12)
   end
 
   def request_smartphone?

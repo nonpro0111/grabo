@@ -1,11 +1,11 @@
-table.dmm-affiliate
-  tr
-    - @affiliates.each do |affiliate|
-      td
+.rows
+  - @affiliates.each do |affiliate|
+    .col.s6.m4.l3
+      .related-item
         = link_to affiliate[:affiliateURL] do
           = image_tag(affiliate[:imageURL][:small], alt: affiliate[:title])
         br
-        価格：
-        span style="color:red;"
-          = "#{affiliate[:prices][:price]}円"
-hr
+        span.red-text
+          = "　価格：#{affiliate[:prices][:price]}円"
+        br
+

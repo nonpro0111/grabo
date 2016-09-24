@@ -8,3 +8,6 @@
             = image_tag(ad[:imageURL][:small], alt: ad[:title], class: 'activator')
         .card-action
           = link_to(ad[:title], ad[:affiliateURL])
+          br
+          span.red-text
+            = "価格: #{ad[:prices][:price]}円"

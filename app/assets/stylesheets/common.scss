@@ -1,7 +1,7 @@
 @media screen and (max-width: 600px) {
   #lower-ad {
-    .card {
-      height: 220px;
+    .card-image {
+      height: 210px;
     }
     .card-action {
       padding: 5px;
@@ -13,8 +13,12 @@
 
 @media screen and (min-width: 601px) {
   #lower-ad {
-    .card {
-      height: 310px;
+    .card-image {
+      img {
+        height: 210px;
+        width: auto;
+        margin: 0 auto;
+      }
     }
     .card-action {
       padding: 5px;
