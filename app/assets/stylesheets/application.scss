@@ -39,37 +39,6 @@
   font-size: 1.34rem;
 }
 
-@media screen and (min-width: 993px) {
-  .video-card {
-    height: 195px;
-
-    .card-content.small-content {
-      padding: 8px;
-      height: 88px;
-    }
-  }
-}
-
-@media screen and (min-width: 601px) and (max-width: 992px) {
-  .video-card {
-    height: 240px;
-    .card-content.small-content {
-      padding: 8px;
-      height: 68px;
-    }
-  }
-}
-
-@media screen and (max-width: 600px) {
-  .video-card {
-    height: 150px;
-    .card-content.small-content {
-      padding: 8px;
-      height: 58px;
-      font-size: 0.8em;
-    }
-  }
-}
 
 .input-field {
   width: 70%;

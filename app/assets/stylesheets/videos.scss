@@ -2,6 +2,53 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@media screen and (min-width: 993px) {
+  .video-card {
+    .card-image {
+      height: 100px;
+      img {
+        height: 100%;
+      }
+    }
+
+    .card-content.small-content {
+      padding: 8px;
+      height: 88px;
+    }
+  }
+}
+
+@media screen and (min-width: 601px) and (max-width: 992px) {
+  .card-image {
+    height: 200px;
+    img {
+      height: 100%;
+    }
+  }
+  .video-card {
+    .card-content.small-content {
+      padding: 8px;
+      height: 68px;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .card-image {
+    height: 89px;
+    img {
+      height: 100%;
+    }
+  }
+  .video-card {
+    .card-content.small-content {
+      padding: 8px;
+      height: 58px;
+      font-size: 0.8em;
+    }
+  }
+}
+
 #video-detail {
   h2 {
     margin-bottom: 0.5rem;
