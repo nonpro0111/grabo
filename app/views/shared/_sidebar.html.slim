@@ -1,7 +1,7 @@
 .col.s12.m12.l10
   .advertisement
     == render "shared/sidebar_affiliate"
-  h3.h6 グラビアBOX動画ランキング
+  h3.h6#popular-video 人気グラビアBOX動画
   ul.collection
     - @popular_videos.each do |video|
       li.collection-item.avatar
@@ -10,7 +10,7 @@
         p
           = truncate(video.description, length: 50)
 
-  h3.h6 グラビアBOX動画登録アイドル
+  h3.h6#idols グラビアBOX動画登録アイドル
   .tags
     - @tags.each do |tag|
       = link_to tag, search_videos_path(search: tag.name), class: "waves-effect waves-light btn-flat red lighten-2"

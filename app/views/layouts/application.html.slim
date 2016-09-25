@@ -13,16 +13,39 @@ html
     #container
       nav
         .nav-wrapper
+          a href="#" data-activates="slide-out" class="button-collapse top-nav waves-effect waves-light circle hide-on-large-only"
+            i class="material-icons"
+              | menu
           = link_to root_path, class: 'brand-logo' do
             h1.h5 
               | グラビアBOX動画
-          ul.right.hide-on-med-and-down
-            li
-              = link_to 'お問い合わせ', new_contact_path
-            li
-              = link_to feed_videos_path(format: :rss) do
-                i.material-icons
-                  | settings_input_antenna
+          - if request_smartphone?
+            ul#slide-out.side-nav
+              li
+                .divider
+              li
+                = link_to "グラビア動画ブログランク",
+                  "http://douga.blogmura.com/douga_gravure/ranking.html", class: "waves-effect"
+              li
+                = link_to "人気グラビアBOX動画", anchor: "popular-video"
+              li
+                = link_to "登録アイドル一覧", anchor: "idols"
+              li
+                = link_to 'お問い合わせ', new_contact_path, class: "waves-effect"
+              li
+                = link_to feed_videos_path(format: :rss), class: "waves-effect" do
+                  i.material-icons
+                    | settings_input_antenna
+          - else
+            ul.right.hide-on-med-and-down
+              li
+                = link_to "グラビア動画ブログランキング", "http://douga.blogmura.com/douga_gravure/ranking.html"
+              li
+                = link_to 'お問い合わせ', new_contact_path
+              li
+                = link_to feed_videos_path(format: :rss) do
+                  i.material-icons
+                    | settings_input_antenna
       .row
         h2.h5.red-text.text-lighten-2
           | グラビアBOX動画 〜セクシーグラビア動画見放題!!〜
