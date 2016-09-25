@@ -23,9 +23,10 @@ ruby:
     br
     = simple_format(@video.description)
     br
-    ul
     - tags.each do |tag|
       p.h6.right-align = link_to "#{tag}の動画をもっと見る", search_videos_path(search: tag)
+    p.right-align
+      = link_to "グラビアアイドル ブログランキングへ", "http://blog.with2.net/link.php?1644812:4185"
     hr
     - if @affiliates
       = render partial: "dmm_related_items", locals: { affiliates: @affiliates }
