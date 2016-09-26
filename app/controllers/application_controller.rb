@@ -12,6 +12,7 @@ class ApplicationController < ActionController::Base
   end
 
   def lower_ad
+    num = request_pc? ? 12 : 4
     @lower_ads = idol_dmm_afi(12)
   end
 
