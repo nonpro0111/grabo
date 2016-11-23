@@ -7,6 +7,7 @@
       .card-content.small-content
         = link_to(truncate(clean_text(video.title), length:20), video)
         - if video.tags.present?
+          br
           - video.tags.each do |tag|
             .chip.red.lighten-2.white-text.small-text
               = tag.name
