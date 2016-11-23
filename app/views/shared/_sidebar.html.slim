@@ -6,9 +6,12 @@
     - @popular_videos.each do |video|
       li.collection-item.avatar
         = image_tag("#{video.thumbnail}", alt: video_alt(video), class: 'responsive-img circle')
-        = link_to(video.title, video, class: "collection-link")
-        p
-          = truncate(video.description, length: 50)
+        = link_to(truncate(video.title, length: 25), video, class: "collection-link")
+        - if video.tags.present?
+          br
+          - video.tags.each do |tag|
+            .chip.mt10.red.lighten-2.white-text
+              = tag.name
 
   h3.h6 グラビアBOX動画登録アイドル
   .tags

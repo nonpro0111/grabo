@@ -4,7 +4,7 @@ class Video < ActiveRecord::Base
   acts_as_taggable            # acts_as_taggable_on :tags のエイリアス
   attr_accessor :tag_names
 
-  scope :popular, -> { order(pv: :desc).limit(10) }
+  scope :popular, -> { includes(:tags).order(pv: :desc).limit(10) }
   scope :within_two_month, -> { where("created_at > ?", 2.month.ago) }
 
  # class << self
@@ -61,11 +61,11 @@ class Video < ActiveRecord::Base
   # 今は同じタグ３件、ランダム2件
   def relations
     if tagging?
-      random_videos = Video.order("RAND()").limit(5)
-      same_tag_videos = Video.tagged_with(tag_list).limit(3)
+      random_videos = Video.includes(:tags).order("RAND()").limit(5)
+      same_tag_videos = Video.includes(:tags).tagged_with(tag_list).limit(3)
       same_tag_videos + random_videos
     else
-      Video.order("RAND()").limit(8)
+      Video.includes(:tags).order("RAND()").limit(8)
     end
   end
 
