@@ -7,6 +7,9 @@ html
     = csrf_meta_tags
     = render partial: 'layouts/meta_tags', locals: {video: @video, search_result: @result_heading}
     meta name="viewport" content="width=device-width, initial-scale=1"
+    javascript:
+      var nend_params = {"media":43791,"site":237336,"spot":682723,"type":2,"oriented":1};
+    = javascript_include_tag "https://js1.nend.net/js/nendAdLoader.js"
   body
     - if Rails.env.production?
       = render partial: 'layouts/google_analytics'
@@ -29,6 +32,10 @@ html
         - if request_pc?
           .col.l9.offset-l1
             IFRAME SRC="http://www.ppc-direct.com/index17.html?affid=185665" width="728" height="90" frameborder="no" scrolling="no"
+        - else
+          javascript:
+            var nend_params = {"media":43791,"site":237336,"spot":682728,"type":1,"oriented":1};
+          script type="text/javascript" src="https://js1.nend.net/js/nendAdLoader.js"
         #main.col.s12.m12.l8
           = yield
           hr
