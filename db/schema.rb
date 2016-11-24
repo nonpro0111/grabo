@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160717091845) do
+ActiveRecord::Schema.define(version: 20161124141217) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -63,6 +63,23 @@ ActiveRecord::Schema.define(version: 20160717091845) do
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
   end
+
+  create_table "idols", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "recommend_statistics", force: :cascade do |t|
+    t.integer  "referer_tag_id",   limit: 4
+    t.integer  "request_tag_id",   limit: 4
+    t.integer  "appearance_count", limit: 4
+    t.integer  "click_count",      limit: 4
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
+  add_index "recommend_statistics", ["referer_tag_id", "request_tag_id"], name: "index_recommend_statistics_on_referer_tag_id_and_request_tag_id", unique: true, using: :btree
 
   create_table "taggings", force: :cascade do |t|
     t.integer  "tag_id",        limit: 4
