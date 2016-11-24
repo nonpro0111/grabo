@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :idols, only: [:index]
+  resources :idols, only: [:index, :show]
 
   mount Admin::Engine, at: :admin
 end

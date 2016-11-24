@@ -1,7 +1,7 @@
 class VideosController < ApplicationController
 
   def index
-    @videos = Video.order(published_at: :desc).includes(:tags).page(params[:page])
+    @videos = Video.order(published_at: :desc).includes(:idols).page(params[:page])
   end
 
   def show
@@ -11,14 +11,8 @@ class VideosController < ApplicationController
     @video.increment!(:pv)
     @relation_videos = @video.relations
 
-    tag_name = @video.tagging? ? @video.tag_list.first : ""
-    set_dmm_affiliate(tag_name)
-  end
-
-  def search
-    tag_name = params[:search]
-    @videos = Video.tagged_with(tag_name).order(id: :desc).page(params[:page])
-    @result_heading = "#{tag_name}  #{@videos.size}件"
+    idol_name = @video.idols.first.try(:name)
+    set_dmm_affiliate(idol_name)
   end
 
   def feed

@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 
   def sidebar
     @popular_videos = Video.popular
-    @tags = ActsAsTaggableOn::Tag.most_used(20)
+    @idols = Idol.limit(20)
     @sidebar_ads = Advertisement.sidebar
   end
 
