@@ -9,7 +9,34 @@ class VideosController < ApplicationController
     redirect_to root_path and return unless @video
 
     @video.increment!(:pv)
+
     @relation_videos = @video.relations
+    referer_id = @video.tags.first.try(:id)
+    if referer_id
+      # @videoがidolと紐付いていたら
+      # RecommendStatisticレコードを作る
+      #
+      # videos#showからリクエストが来て
+      # リクエスト元のvideoがidolと紐付いていたら
+      # RecommendStatisticレコードを取得して+1する
+      @relation_videos.each do |relation_video|
+        request_id = relation_video.tags.first.try(:id)
+        next unless request_id
+
+        RelevanceScore.update_or_create_data(referer_id, request_id)
+      end
+
+      match = request.referer.match(/videos\/(\d*)$/)
+      if match
+        @referer_video = Video.find(match[1])
+        referer_tag_id = @referer_video.tags.first.try(:id)
+        @recommend_statistic = RelevanceScore.find_by(referer)
+      end
+    end
+
+    binding.pry
+
+    #
 
     idol_name = @video.idols.first.try(:name)
     set_dmm_affiliate(idol_name)

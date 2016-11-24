@@ -80,17 +80,6 @@ ActiveRecord::Schema.define(version: 20161124154414) do
   add_index "idols_videos", ["idol_id"], name: "index_idols_videos_on_idol_id", using: :btree
   add_index "idols_videos", ["video_id"], name: "index_idols_videos_on_video_id", using: :btree
 
-  create_table "recommend_statistics", force: :cascade do |t|
-    t.integer  "referer_tag_id",   limit: 4
-    t.integer  "request_tag_id",   limit: 4
-    t.integer  "appearance_count", limit: 4
-    t.integer  "click_count",      limit: 4
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
-  end
-
-  add_index "recommend_statistics", ["referer_tag_id", "request_tag_id"], name: "index_recommend_statistics_on_referer_tag_id_and_request_tag_id", unique: true, using: :btree
-
   create_table "taggings", force: :cascade do |t|
     t.integer  "tag_id",        limit: 4
     t.integer  "taggable_id",   limit: 4
