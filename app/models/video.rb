@@ -8,7 +8,6 @@ class Video < ActiveRecord::Base
 
   scope :popular, -> { includes(:idols).order(pv: :desc).limit(10) }
   scope :within_two_month, -> { where("created_at > ?", 2.month.ago) }
-  scope :idol_names, -> { idols.pluck(:name) }
 
   def set_tag_by_title
     strip_title = title.gsub(/(\s|　)+/, '')
@@ -28,8 +27,8 @@ class Video < ActiveRecord::Base
     Net::HTTP.get_response(uri).code == '404'
   end
 
-  def tagging?
-    idols.exist?
+  def idol_names
+    idols.pluck(:name)
   end
 
   def relations
@@ -37,8 +36,9 @@ class Video < ActiveRecord::Base
   end
 
   def add_one_word
-    return unless tagging?
-    idol = tag_list.first
+    return unless idols.exists?
+
+    idol = idol_names.first
     one_word = Description.one_word(idol)
     self.description = "" if self.description.nil?
     self.description += "\n\n" + one_word
