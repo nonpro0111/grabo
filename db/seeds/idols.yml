@@ -27,7 +27,7 @@ idols_9:
   name: 逢坂南
 idols_10:
   id: 10
-  name: 山咲良
+  name: 福山咲良
 idols_11:
   id: 11
   name: 谷麻紗美
@@ -105,7 +105,7 @@ idols_35:
   name: 春菜めぐみ
 idols_36:
   id: 36
-  name: 七海
+  name: 水沢心愛
 idols_37:
   id: 37
   name: 宮部すず
@@ -258,7 +258,7 @@ idols_86:
   name: 倉持由香
 idols_87:
   id: 87
-  name: 長澤茉里
+  name: 長澤茉里奈
 idols_88:
   id: 88
   name: 木村あや
@@ -597,7 +597,7 @@ idols_199:
   name: 春菜はな
 idols_200:
   id: 200
-  name: 橋本環
+  name: 橋本環奈
 idols_201:
   id: 201
   name: 広瀬すず
@@ -648,7 +648,7 @@ idols_216:
   name: 水樹たま
 idols_217:
   id: 217
-  name: 若芽若松芽依
+  name: 若松芽依
 idols_218:
   id: 218
   name: 桜井はるか
@@ -735,7 +735,7 @@ idols_245:
   name: 柏木美里
 idols_246:
   id: 246
-  name: 藍いくみ
+  name: 西浜ふうか
 idols_247:
   id: 247
   name: 花井美理
@@ -771,7 +771,7 @@ idols_257:
   name: 椎名もも
 idols_258:
   id: 258
-  name: 西浜ゆう
+  name: 西浜ゆうか
 idols_259:
   id: 259
   name: 山中知恵
@@ -834,7 +834,7 @@ idols_278:
   name: 新山らん
 idols_279:
   id: 279
-  name: 小林伸一
+  name: 英里香
 idols_280:
   id: 280
   name: 滝沢乃南
@@ -864,7 +864,7 @@ idols_288:
   name: 田中優香
 idols_289:
   id: 289
-  name: 国分三平
+  name: 国分佐智子
 idols_290:
   id: 290
   name: 久松郁実
@@ -873,7 +873,7 @@ idols_291:
   name: 都丸紗也華
 idols_292:
   id: 292
-  name: 大島涼
+  name: 大島涼花
 idols_293:
   id: 293
   name: 大沢あかね
@@ -1080,7 +1080,7 @@ idols_360:
   name: 長澤まさみ
 idols_361:
   id: 361
-  name: 小宮有沙
+  name: 小宮有紗
 idols_362:
   id: 362
   name: 倉持明日香
@@ -1107,7 +1107,7 @@ idols_369:
   name: 石田佳蓮
 idols_370:
   id: 370
-  name: 相沢仁
+  name: 相沢仁菜
 idols_371:
   id: 371
   name: 生田絵梨花
@@ -1137,7 +1137,7 @@ idols_379:
   name: 武田玲奈
 idols_380:
   id: 380
-  name: 新井愛
+  name: 新井愛瞳
 idols_381:
   id: 381
   name: 岡井千聖
@@ -1158,7 +1158,7 @@ idols_386:
   name: 窪田美沙
 idols_387:
   id: 387
-  name: 山本健司
+  name: 高橋ナツミ
 idols_388:
   id: 388
   name: 加藤ナナ
@@ -1167,7 +1167,7 @@ idols_389:
   name: 白石みき
 idols_390:
   id: 390
-  name: 櫻井智
+  name: 松田るか
 idols_392:
   id: 392
   name: 西崎莉麻
@@ -1239,7 +1239,7 @@ idols_414:
   name: 双葉ゆき
 idols_415:
   id: 415
-  name: 佐藤理
+  name: 石井めぐる
 idols_416:
   id: 416
   name: 真島かおる
@@ -1284,7 +1284,7 @@ idols_429:
   name: 道重さゆみ
 idols_430:
   id: 430
-  name: 久村聖
+  name: 譜久村聖
 idols_431:
   id: 431
   name: 朝倉みな
@@ -1359,7 +1359,7 @@ idols_454:
   name: 咲田朱里
 idols_455:
   id: 455
-  name: 池田愛
+  name: 池田愛恵里
 idols_456:
   id: 456
   name: 寺田有希
@@ -1437,16 +1437,16 @@ idols_481:
   name: 倉田夏希
 idols_482:
   id: 482
-  name: 伊藤早由
+  name: 伊藤早由利
 idols_483:
   id: 483
   name: 十枝梨菜
 idols_484:
   id: 484
-  name: 武田華
+  name: 希帆
 idols_485:
   id: 485
-  name: 原あや
+  name: 三浦はづき
 idols_486:
   id: 486
   name: 一ノ瀬未菜
@@ -1470,7 +1470,7 @@ idols_492:
   name: 西野早耶
 idols_493:
   id: 493
-  name: 朝日花
+  name: 伊東紗冶子
 idols_494:
   id: 494
   name: 吉川友
@@ -1483,3 +1483,28 @@ idols_496:
 idols_497:
   id: 497
   name: 向井地美音
+idols_498:
+  id: 498
+  name: RaMu
+idols_499:
+  id: 499
+  name: 熊江琉唯
+idols_500:
+  id: 500
+  name: 空野青空
+idols_501:
+  id: 501
+  name: 一ノ瀬りと
+idols_502:
+  id: 502
+  name: 奥津マリリ
+idols_503:
+  id: 503
+  name: 朝日花奈
+idols_504:
+  id: 504
+  name: 八木ひなた
+idols_505:
+  id: 505
+  name: 原あや香
+
