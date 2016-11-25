@@ -33,6 +33,10 @@ default:
     - https://www.youtube.com/feeds/videos.xml?channel_id=UCvz44P_Jly_WV-2L5OdGI1Q # しんのすけVENUS
     - https://www.youtube.com/feeds/videos.xml?channel_id=UCfyawFau0aAFOO8TJFzFiJw # さや姉
     - https://www.youtube.com/feeds/videos.xml?channel_id=UCPiL4QJdqqiyOKDXReKNeTA # 白泉社 ヤングアニマル
+    - https://www.youtube.com/feeds/videos.xml?channel_id=UCMD8nZ0-pX9gj0aiuq378gg # nana fan4
+    - https://www.youtube.com/feeds/videos.xml?channel_id=UC0HBKn-LpMoA5vo6G5_i5Jg # GOG GOG
+    - https://www.youtube.com/feeds/videos.xml?channel_id=UC4PjbgBYS3ijUloq66WIcwQ # 大好き AKBG
+    - https://www.youtube.com/feeds/videos.xml?channel_id=UCpizqGZe33pCKQBBJCMP91g # googler
   niconico:
     - http://www.nicovideo.jp/tag/#{tag名}?sort=f&rss=2.0
   fc2:

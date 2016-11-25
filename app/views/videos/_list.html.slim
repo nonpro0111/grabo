@@ -6,11 +6,12 @@
           = image_tag("#{video.thumbnail}", alt: video_alt(video), class: 'activator')
       .card-content.small-content
         = link_to(truncate(clean_text(video.title), length:20), video)
-        - if video.tags.present?
+        - idol_names = video.idol_names
+        - if idol_names.present?
           br
-          - video.tags.each do |tag|
+          - idol_names.each do |idol_name|
             .chip.red.lighten-2.white-text.small-text
-              = tag.name
+              = idol_name
 
 = paginate(videos)
 

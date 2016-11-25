@@ -5,5 +5,5 @@
   ul
     - @idols.each do |idol|
       li
-        = link_to idol, search_videos_path(search: idol)
+        = link_to idol.name, idol_path(idol)
 

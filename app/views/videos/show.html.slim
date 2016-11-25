@@ -1,21 +1,21 @@
 javascript:
   !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
 ruby:
-  tags = @video.tag_list
+  idols = @video.idols
 
 #video-detail.col.s12.m12.l12
   .card-panel.embedded-video
     = render "show_page_affiliate"
     h2.h4
       = clean_text(@video.title)
-    - if tags.present?
+    - if idols.present?
       | タグ：
-      - tags.each do |tag|
-        = link_to tag, search_videos_path(search: tag), class: "waves-effect waves-teal btn-flat btn-small red lighten-2 mb10"
+      - idols.each do |idol|
+        = link_to idol.name, idol_path(idol), class: "waves-effect waves-teal btn-flat btn-small red lighten-2 mb10"
     .tweet-share
       = link_to "ツイート", "https://twitter.com/share", class: "twitter-share-button",
         :"data-via" =>  "gravuretube_xyz", :"data-lang" => "ja", :"data-size" => "large",
-        :"data-hashtags" => "グラビアアイドル,グラビア動画,#{@display_tag_name}"
+        :"data-hashtags" => "グラビアアイドル,グラビア動画"
     p.red-text
       | ※動画が表示されない場合は、再読み込みしてください。
     .video-container
@@ -23,8 +23,8 @@ ruby:
     br
     = simple_format(@video.description)
     br
-    - tags.each do |tag|
-      p.h6.right-align = link_to "#{tag}の動画をもっと見る", search_videos_path(search: tag)
+    - idols.each do |idol|
+      p.h6.right-align = link_to "#{idol.name}の動画をもっと見る", idol_path(idol)
     p.right-align
       = link_to "グラビアアイドル ブログランキングへ", "http://blog.with2.net/link.php?1644812:4185"
     hr
@@ -39,8 +39,9 @@ ruby:
         li.collection-item.avatar
           = image_tag("#{video.thumbnail}", alt: video_alt(video), class: 'responsive-img circle')
           = link_to(video.title, video, class: "collection-link")
-          - if video.tags.present?
+          - idol_names = video.idol_names
+          - if idol_names.present?
             br
-            - video.tags.each do |tag|
+            - idol_names.each do |idol_name|
               .chip.mt10.red.lighten-2.white-text
-                = tag.name
+                = idol_name

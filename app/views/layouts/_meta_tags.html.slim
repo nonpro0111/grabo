@@ -7,7 +7,7 @@ ruby:
   site_name = 'グラビアBOX動画　〜グラビアアイドル動画見放題〜'
   if video
     description = "#{video.title}。#{video.description}"
-    description = meta_tag_description(video.tags.first.name) + description if video.tagging?
+    description = meta_tag_description(video.idols.first.name) + description if video.idols.exists?
 
     meta_tags = {
       site: site_name,

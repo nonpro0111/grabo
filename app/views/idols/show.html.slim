@@ -1,0 +1,9 @@
+#video-list.col.s12.m12.l11.offset-l1
+  - if @videos.present?
+    h2.h4
+      = @result_heading
+    = render partial: "videos/list", locals: {videos: @videos}
+  - else
+    p
+      | ごめんなさい。見つかりませんでした。
+    = render partial: "videos/list", locals: {videos: @another_videos}

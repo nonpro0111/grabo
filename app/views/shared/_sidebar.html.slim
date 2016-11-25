@@ -7,15 +7,16 @@
       li.collection-item.avatar
         = image_tag("#{video.thumbnail}", alt: video_alt(video), class: 'responsive-img circle')
         = link_to(truncate(video.title, length: 25), video, class: "collection-link")
-        - if video.tags.present?
+        - idol_names = video.idol_names
+        - if idol_names.present?
           br
-          - video.tags.each do |tag|
+          - idol_names.each do |idol_name|
             .chip.mt10.red.lighten-2.white-text
-              = tag.name
+              = idol_name
 
   h3.h6 グラビアBOX動画登録アイドル
   .tags
-    - @tags.each do |tag|
-      = link_to tag, search_videos_path(search: tag.name), class: "waves-effect waves-light btn-flat red lighten-2"
+    - @idols.each do |idol|
+      = link_to idol.name, idol_path(idol), class: "waves-effect waves-light btn-flat red lighten-2"
     br
     = link_to "すべて見る", idols_path, class: "right-link"
