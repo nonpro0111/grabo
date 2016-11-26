@@ -6,4 +6,5 @@
   - else
     p
       | ごめんなさい。見つかりませんでした。
-    = render partial: "videos/list", locals: {videos: @another_videos}
+    - if @another_videos
+      = render partial: "videos/list", locals: {videos: @another_videos}

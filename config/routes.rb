@@ -9,12 +9,15 @@ Rails.application.routes.draw do
 
   resources :videos, only: [:index, :show] do
     collection do
-      get 'search'
       get 'feed'
     end
   end
 
-  resources :idols, only: [:index, :show]
+  resources :idols, only: [:index, :show] do
+    collection do
+      get 'search'
+    end
+  end
 
   mount Admin::Engine, at: :admin
 end
