@@ -1,9 +1,28 @@
 #sidebar {
   margin-top: 30px;
 
+  @media screen and (max-width: 992px) {
+    .search-pc {
+      display: none;
+    }
+  }
+
+  .search-form {
+    position: relative;
+
+    .btn-search {
+      position: absolute;
+      top: 10px;
+    }
+  }
+
   .advertisement {
     width: 300px;
     margin: 0 auto;
+  }
+
+  #video-ranking {
+    clear: both;
   }
 
   .tags {

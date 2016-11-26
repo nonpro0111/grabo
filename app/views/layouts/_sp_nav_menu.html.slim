@@ -1,13 +1,19 @@
-ul id="slide-out" class="side-nav"
-  li
-    = link_to "HOME", root_path
-  li
-    = link_to "新着動画", root_path(anchor: "video-list")
-  li
-    = link_to "ランキング", root_path(anchor: "video-ranking")
-  li
-    = link_to "アイドル一覧", idols_path
-
+#slide-out.side-nav
+  = form_tag(search_idols_path, method: "get", class: "search-form") do
+    .input-field.col.s8
+      = text_field_tag 'search', '', placeholder: "グラドル名"
+      button.btn.btn-small.btn-search type="submit" name="action"
+        i.material-icons
+          | search
+  ul style="clear:both;"
+    li
+      = link_to "HOME", root_path
+    li
+      = link_to "新着動画", root_path(anchor: "video-list")
+    li
+      = link_to "ランキング", root_path(anchor: "video-ranking")
+    li
+      = link_to "アイドル一覧", idols_path
 a href="#" data-activates="slide-out" class="button-collapse"
   i class="material-icons"
     | menu

@@ -12,4 +12,13 @@ class IdolsController < ApplicationController
     end
     @result_heading = "#{@idol.name}  #{@videos.size}件"
   end
+
+  def search
+    word = params[:search].gsub(/(\s|　)+/, "")
+    idols = Idol.where("name like ?", "%#{word}%")
+    @videos = Video.joins(:idols).merge(idols).page(params[:page])
+    @result_heading = "#{params[:search]}検索結果  #{@videos.size}件"
+
+    render :show
+  end
 end

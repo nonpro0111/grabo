@@ -1,18 +1,27 @@
 .col.s12.m12.l10
-  .advertisement
-    == render "shared/sidebar_affiliate"
-  h3#video-ranking.h6 グラビアBOX動画ランキング
-  ul.collection
-    - @popular_videos.each do |video|
-      li.collection-item.avatar
-        = image_tag("#{video.thumbnail}", alt: video_alt(video), class: 'responsive-img circle')
-        = link_to(truncate(video.title, length: 25), video, class: "collection-link")
-        - idol_names = video.idol_names
-        - if idol_names.present?
-          br
-          - idol_names.each do |idol_name|
-            .chip.mt10.red.lighten-2.white-text
-              = idol_name
+  .search-pc
+    = form_tag(search_idols_path, method: "get", class: "search-form") do
+      .input-field.inline.col.l9
+        = text_field_tag 'search', ''
+        label for="search"
+          | グラドル名
+        button.btn.btn-small.btn-search type="submit" name="action"
+          i.material-icons
+            | search
+
+  #video-ranking
+    h3.h6 グラビアBOX動画ランキング
+    ul.collection
+      - @popular_videos.each do |video|
+        li.collection-item.avatar
+          = image_tag("#{video.thumbnail}", alt: video_alt(video), class: 'responsive-img circle')
+          = link_to(truncate(video.title, length: 25), video, class: "collection-link")
+          - idol_names = video.idol_names
+          - if idol_names.present?
+            br
+            - idol_names.each do |idol_name|
+              .chip.mt10.red.lighten-2.white-text
+                = idol_name
 
   h3.h6 グラビアBOX動画登録アイドル
   .tags
