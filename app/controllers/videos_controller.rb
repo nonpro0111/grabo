@@ -10,9 +10,30 @@ class VideosController < ApplicationController
 
     @video.increment!(:pv)
     @relation_videos = @video.relations
-
     idol_name = @video.idols.first.try(:name)
     set_dmm_affiliate(idol_name)
+
+    # 複数アイドルの組み合わせなどは考えず、
+    # Idolレコードが1レコードのもののみ扱う
+    # 1レコードのものがほとんどなので十分だと思う
+    idol_id = @video.idols.pluck(:id).first
+
+    if idol_id
+      video_ids = @relation_videos.map(&:id)
+      request_idol_ids = Idol.joins(:videos).merge(Video.where(id: video_ids)).pluck(:id)
+      RelevanceScore.update_or_create_score(idol_id, request_idol_ids)
+
+      match = request.referer.try(:match, /videos\/(\d*)$/)
+      if match
+        referer_video = Video.find(match[1])
+        referer_idol_id = referer_video.idols.pluck(:id).first
+        relevance_score = RelevanceScore.find_by(
+                            referer_idol_id: referer_idol_id,
+                            request_idol_id: idol_id
+                          )
+        relevance_score.increment!(:click_count) if relevance_score
+      end
+    end
   end
 
   def feed
