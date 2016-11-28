@@ -80,6 +80,17 @@ ActiveRecord::Schema.define(version: 20161124154414) do
   add_index "idols_videos", ["idol_id"], name: "index_idols_videos_on_idol_id", using: :btree
   add_index "idols_videos", ["video_id"], name: "index_idols_videos_on_video_id", using: :btree
 
+  create_table "relevance_scores", force: :cascade do |t|
+    t.integer  "referer_idol_id",  limit: 4,             null: false
+    t.integer  "request_idol_id",  limit: 4,             null: false
+    t.integer  "appearance_count", limit: 4, default: 0
+    t.integer  "click_count",      limit: 4, default: 0
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
+  end
+
+  add_index "relevance_scores", ["referer_idol_id", "request_idol_id"], name: "index_relevance_scores_on_referer_idol_id_and_request_idol_id", unique: true, using: :btree
+
   create_table "taggings", force: :cascade do |t|
     t.integer  "tag_id",        limit: 4
     t.integer  "taggable_id",   limit: 4
