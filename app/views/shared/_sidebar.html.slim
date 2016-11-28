@@ -9,6 +9,13 @@
           i.material-icons
             | search
 
+  #idol-list
+    h3.h6 グラビアBOX動画登録アイドル
+    .tags
+      - @idols.each do |idol|
+        = link_to idol.name, idol_path(idol), class: "waves-effect waves-light btn-flat red lighten-2"
+      br
+      = link_to "すべて見る", idols_path, class: "right-link"
   #video-ranking
     h3.h6 グラビアBOX動画ランキング
     ul.collection
@@ -22,10 +29,3 @@
             - idol_names.each do |idol_name|
               .chip.mt10.red.lighten-2.white-text
                 = idol_name
-
-  h3.h6 グラビアBOX動画登録アイドル
-  .tags
-    - @idols.each do |idol|
-      = link_to idol.name, idol_path(idol), class: "waves-effect waves-light btn-flat red lighten-2"
-    br
-    = link_to "すべて見る", idols_path, class: "right-link"

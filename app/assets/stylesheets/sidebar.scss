@@ -21,22 +21,27 @@
     margin: 0 auto;
   }
 
-  #video-ranking {
+  #idol-list {
     clear: both;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    .tags {
+      .btn-flat {
+        padding: 0 1em;
+        margin: 0.2em 0.3em;
+        color: #fff;
+      }
+
+      .right-link {
+        margin-top: 8px;
+        margin-right: 25px;
+        float: right;
+      }
+    }
   }
 
-  .tags {
-    .btn-flat {
-      padding: 0 1em;
-      margin: 0.2em 0.3em;
-      color: #fff;
-    }
-
-    .right-link {
-      margin-top: 8px;
-      margin-right: 25px;
-      float: right;
-    }
+  #video-ranking {
+    clear: both;
   }
 
   ul#antenna-list {
