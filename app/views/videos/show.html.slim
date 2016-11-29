@@ -35,9 +35,10 @@ ruby:
       | 関連動画
     ul.collection
       - @relation_videos.each do |video|
-        li.collection-item.avatar
-          = image_tag("#{video.thumbnail}", alt: video_alt(video), class: 'responsive-img circle')
-          = link_to(video.title, video, class: "collection-link")
+        li.collection-item.related-video
+          = image_tag("#{video.thumbnail}", alt: video_alt(video), width: "75px", height: "75px")
+          p
+            = link_to(video.title, video, class: "collection-link")
           - idol_names = video.idol_names
           - if idol_names.present?
             br
