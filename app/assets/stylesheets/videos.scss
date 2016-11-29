@@ -5,7 +5,7 @@
 @media screen and (min-width: 993px) {
   .video-card {
     .card-image {
-      height: 100px;
+      height: 160px;
       img {
         height: 100%;
       }
@@ -20,13 +20,13 @@
 }
 
 @media screen and (min-width: 601px) and (max-width: 992px) {
-  .card-image {
-    height: 200px;
-    img {
-      height: 100%;
-    }
-  }
   .video-card {
+    .card-image {
+      height: 200px;
+      img {
+        height: 100%;
+      }
+    }
     .card-content.small-content {
       padding: 8px;
       height: 68px;
