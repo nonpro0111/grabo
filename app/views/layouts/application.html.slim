@@ -25,13 +25,6 @@ html
       .row
         h2.h5.red-text.text-lighten-2
           | グラビアBOX動画 〜セクシーグラビア動画見放題!!〜
-        - if request_pc?
-          .col.offset-l1
-            IFRAME SRC="http://www.ppc-direct.com/index17.html?affid=185665" width="728" height="90" frameborder="no" scrolling="no"
-        - else
-          javascript:
-            var nend_params = {"media":43791,"site":237336,"spot":682728,"type":1,"oriented":1};
-          script type="text/javascript" src="https://js1.nend.net/js/nendAdLoader.js"
         #main.col.s12.m12.l8
           = yield
           hr

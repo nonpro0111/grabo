@@ -16,6 +16,8 @@
         = link_to idol.name, idol_path(idol), class: "waves-effect waves-light btn-flat red lighten-2"
       br
       = link_to "すべて見る", idols_path, class: "right-link"
+  .advertisement
+    == render "shared/sidebar_affiliate"
   #video-ranking
     h3.h6 グラビアBOX動画ランキング
     ul.collection

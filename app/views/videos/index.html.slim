@@ -1,4 +1,8 @@
 #video-list.col.s12.m12.l11.offset-l1
+  - if request_smartphone?
+    javascript:
+      var nend_params = {"media":43791,"site":237336,"spot":682728,"type":1,"oriented":1};
+    script type="text/javascript" src="https://js1.nend.net/js/nendAdLoader.js"
   h3.h4
     | グラビアBOX動画新着
   = render partial: "list", locals: {videos: @videos}
