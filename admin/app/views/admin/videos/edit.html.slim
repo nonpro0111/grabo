@@ -1,9 +1,0 @@
-= link_to "実際のページ", main_app.video_path(@video), target: "_blank"
-br
-h3
-  | 編集
-= render "form"
-.row
-  .col.l12
-    br
-    = link_to "削除する", @video, method: :delete, data: {confirm: "本当に削除しますか？"}

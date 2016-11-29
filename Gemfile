@@ -40,8 +40,6 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'buffer', :github => 'bufferapp/buffer-ruby'
 
-gem 'admin', path: 'admin'
-
 gem 'carrierwave'
 gem 'rmagick', require: 'RMagick'
 # Use ActiveModel has_secure_password

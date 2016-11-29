@@ -18,6 +18,4 @@ Rails.application.routes.draw do
       get 'search'
     end
   end
-
-  mount Admin::Engine, at: :admin
 end
