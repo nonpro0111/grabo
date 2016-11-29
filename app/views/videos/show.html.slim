@@ -37,11 +37,11 @@ ruby:
       - @relation_videos.each do |video|
         li.collection-item.related-video
           = image_tag("#{video.thumbnail}", alt: video_alt(video), width: "75px", height: "75px")
-          p
+          .related-video-title
             = link_to(video.title, video, class: "collection-link")
-          - idol_names = video.idol_names
-          - if idol_names.present?
-            br
-            - idol_names.each do |idol_name|
-              .chip.mt10.red.lighten-2.white-text
-                = idol_name
+            - idol_names = video.idol_names
+            - if idol_names.present?
+              br
+              - idol_names.each do |idol_name|
+                .chip.mt10.red.lighten-2.white-text
+                  = idol_name
