@@ -5,6 +5,9 @@ ruby:
 
 #video-detail.col.s12.m12.l12
   .card-panel.embedded-video
+    - if request_smartphone?
+      a href="http://www.dmm.co.jp/lp/game/senpuri/index001.html/=/navi=none/nonpro0111-002" target="_blank"
+        img src="http://pics.dmm.com/af/a_olg029/300_60.jpg" width="300" height="60" alt="戦乱プリンセスG" border="0"
     h2.h4
       = clean_text(@video.title)
     - if idols.present?
